@@ -1,0 +1,13 @@
+/vendor/
+/node_modules/
+/public/hot
+/public/storage
+/storage/*.key
+/.env
+/.env.backup
+/.env.example
+/.idea
+/.vscode
+/_ide_helper.php
+/_ide_helper_models.php
+/phpunit.xml
