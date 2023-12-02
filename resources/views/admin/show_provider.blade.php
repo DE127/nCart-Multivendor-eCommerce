@@ -13,12 +13,12 @@
           </div>
 
           <div class="section-body">
-            <a href="{{ route('admin.provider') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Seller List')}}</a>
+            <a href="{{ route('admin.provider') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-list"></i> {{__('admin.Seller List')}}</a>
             <div class="row mt-5">
                 <div class="col-md-3">
                   <div class="card card-statistic-1">
                     <div class="card-icon bg-primary">
-                        <i class="fas fa-coins"></i>
+                        <i class="fa-duotone fa-lg fa-coins"></i>
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">
@@ -70,7 +70,7 @@
                     <a href="{{ route('admin.product.index', ['author_id' => $seller->id]) }}">
                   <div class="card card-statistic-1">
                     <div class="card-icon bg-success">
-                      <i class="fas fa-circle"></i>
+                      <i class="fa-duotone fa-lg fa-circle"></i>
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">

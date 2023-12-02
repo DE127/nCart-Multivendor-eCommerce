@@ -18,7 +18,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                  <i class="fas fa-shopping-cart"></i>
+                  <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -33,7 +33,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                  <i class="fas fa-shopping-cart"></i>
+                  <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -49,7 +49,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                  <i class="fas fa-shopping-cart"></i>
+                  <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -64,7 +64,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                  <i class="fas fa-shopping-cart"></i>
+                  <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -80,7 +80,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-success">
-                  <i class="fas fa-dollar-sign"></i>
+                  <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-dollar-sign"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -96,7 +96,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-success">
-                  <i class="fas fa-dollar-sign"></i>
+                  <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-dollar-sign"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -112,7 +112,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-success">
-                  <i class="fas fa-undo"></i>
+                  <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-undo"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -128,7 +128,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-success">
-                  <i class="fas fa-users"></i>
+                  <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-users"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -149,7 +149,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
@@ -165,7 +165,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -181,7 +181,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -196,7 +196,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -212,7 +212,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-warning">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-dollar-sign"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -228,7 +228,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-warning">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-dollar-sign"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -244,7 +244,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-warning">
-                    <i class="fas fa-undo"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-undo"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -260,7 +260,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-warning">
-                    <i class="fas fa-users"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-users"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -280,7 +280,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -296,7 +296,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -312,7 +312,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -327,7 +327,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -343,7 +343,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-danger">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-dollar-sign"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -359,7 +359,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-danger">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-dollar-sign"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -375,7 +375,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-danger">
-                    <i class="fas fa-undo"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-undo"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -391,7 +391,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-danger">
-                    <i class="fas fa-users"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-users"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -411,7 +411,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
@@ -427,7 +427,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -443,7 +443,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -458,7 +458,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-primary">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-shopping-cart"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -474,7 +474,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-success">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-dollar-sign"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -490,7 +490,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-success">
-                    <i class="fas fa-dollar-sign"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-dollar-sign"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -506,7 +506,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-success">
-                    <i class="fas fa-undo"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-undo"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -522,7 +522,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-success">
-                    <i class="fas fa-users"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-users"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -538,7 +538,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-warning">
-                    <i class="fas fa-users"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-users"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -554,7 +554,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-warning">
-                    <i class="fas fa-users"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-users"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">
@@ -572,7 +572,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                   <div class="card-icon bg-warning">
-                    <i class="fas fa-th-large"></i>
+                    <i style="--fa-primary-color: #ffffff; --fa-primary-opacity: 1; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 0.4;" class="fa-duotone fa-xl fa-lg fa-th-large"></i>
                   </div>
                   <div class="card-wrap">
                     <div class="card-header">

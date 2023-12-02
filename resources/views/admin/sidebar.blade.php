@@ -6,16 +6,18 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="{{ route('admin.dashboard') }}">{{ $setting->sidebar_lg_header }}</a>
+      <i class="fa-duotone fa-cart-shopping-fast fa-xl"></i>
+        <a style="margin: 2px 6px" href="{{ route('admin.dashboard') }}">{{ $setting->sidebar_lg_header }}</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
+      <i class="fa-duotone fa-cart-shopping-fast"></i>
         <a href="{{ route('admin.dashboard') }}">{{ $setting->sidebar_sm_header }}</a>
       </div>
       <ul class="sidebar-menu">
-          <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> <span>{{__('admin.Dashboard')}}</span></a></li>
+          <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fa-duotone fa-lg fa-home"></i> <span style="padding: 3px 6px">{{__('admin.Dashboard')}}</span></a></li>
 
           <li class="nav-item dropdown {{ Route::is('admin.all-booking') || Route::is('admin.order-show') || Route::is('admin.pending-order') || Route::is('admin.complete-order') || Route::is('admin.complete-request') || Route::is('admin.completed-booking') || Route::is('admin.declined-booking')  ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-shopping-cart"></i><span>{{__('admin.All Orders')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-shopping-cart"></i><span  style="padding: 3px 6px">{{__('admin.All Orders')}}</span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.all-booking') || Route::is('admin.order-show') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.all-booking') }}">{{__('admin.All Orders')}}</a></li>
@@ -29,7 +31,7 @@
           </li>
 
           <li class="nav-item dropdown {{ Route::is('admin.product.*') || Route::is('admin.active.product') || Route::is('admin.pending.product') || Route::is('admin.package.content') || Route::is('admin.product-type.*') || Route::is('admin.product-variant') || Route::is('admin.select-product-type') || Route::is('admin.product-comment.*') || Route::is('admin.product-review.*') || Route::is('admin.product-type-page.*') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('admin.Manage Product')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-th-large"></i><span style="padding: 3px 6px">{{__('admin.Manage Product')}}</span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.select-product-type') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.select-product-type') }}">{{__('admin.Create Product')}}</a></li>
@@ -53,14 +55,14 @@
             </ul>
           </li>
 
-          <li class="{{ Route::is('admin.category.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.category.index') }}"><i class="fas fa-th-large"></i> <span>{{__('admin.Categories')}}</span></a></li>
+          <li class="{{ Route::is('admin.category.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.category.index') }}"><i class="fa-duotone fa-lg fa-th-large"></i> <span style="padding: 3px 6px">{{__('admin.Categories')}}</span></a></li>
 
-          <li class="{{ Route::is('admin.coupon.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.coupon.index') }}"><i class="fas fa-th-large"></i> <span>{{__('admin.Coupon')}}</span></a></li>
+          <li class="{{ Route::is('admin.coupon.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.coupon.index') }}"><i class="fa-duotone fa-lg fa-th-large"></i> <span style="padding: 3px 6px">{{__('admin.Coupon')}}</span></a></li>
 
-          <li class="{{  Route::is('admin.provider') || Route::is('admin.send-email-to-all-provider') || Route::is('admin.send-email-to-provider') || Route::is('admin.pending-provider') || Route::is('admin.provider-show') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.provider') }}"><i class="fas fa-users"></i> <span>{{__('admin.Sellers')}}</span></a></li>
+          <li class="{{  Route::is('admin.provider') || Route::is('admin.send-email-to-all-provider') || Route::is('admin.send-email-to-provider') || Route::is('admin.pending-provider') || Route::is('admin.provider-show') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.provider') }}"><i class="fa-duotone fa-lg fa-users"></i> <span style="padding: 3px 6px">{{__('admin.Sellers')}}</span></a></li>
 
           <li class="nav-item dropdown {{  Route::is('admin.customer-list') || Route::is('admin.customer-show') || Route::is('admin.pending-customer-list') || Route::is('admin.send-email-to-all-customer') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>{{__('admin.Users')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-users"></i><span style="padding: 3px 6px">{{__('admin.Users')}}</span></a>
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.customer-list') || Route::is('admin.customer-show') || Route::is('admin.send-email-to-all-customer') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.customer-list') }}">{{__('admin.User List')}}</a></li>
 
@@ -70,7 +72,7 @@
 
 
           <li class="nav-item dropdown {{ Route::is('admin.withdraw-method.*') || Route::is('admin.provider-withdraw') || Route::is('admin.pending-provider-withdraw') || Route::is('admin.show-provider-withdraw')  ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="far fa-newspaper"></i><span>{{__('admin.Withdraw Payment')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-newspaper"></i><span style="padding: 3px 6px">{{__('admin.Withdraw Payment')}}</span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.withdraw-method.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.withdraw-method.index') }}">{{__('admin.Withdraw Method')}}</a></li>
@@ -83,7 +85,7 @@
           </li>
 
           <li class="nav-item dropdown {{ Route::is('admin.maintainance-mode') ||  Route::is('admin.mega-menu-category.*') || Route::is('admin.mega-menu-sub-category') || Route::is('admin.create-mega-menu-sub-category') || Route::is('admin.edit-mega-menu-sub-category') || Route::is('admin.mega-menu-banner') || Route::is('admin.banner-image.index') || Route::is('admin.cart-bottom-banner') || Route::is('admin.shop-page') || Route::is('admin.seo-setup') || Route::is('admin.menu-visibility') || Route::is('admin.product-detail-page') || Route::is('admin.default-avatar') || Route::is('admin.login-page') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-globe"></i><span>{{__('admin.Manage Website')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-globe"></i><span style="padding: 3px 6px">{{__('admin.Manage Website')}}</span></a>
 
             <ul class="dropdown-menu">
 
@@ -97,7 +99,7 @@
           </li>
 
           <li class="nav-item dropdown {{ Route::is('admin.slider.*') || Route::is('admin.counter') || Route::is('admin.testimonial.*') || Route::is('admin.template.*') || Route::is('admin.mobile-app') || Route::is('admin.subscriber-section') || Route::is('admin.partner.*') || Route::is('admin.section-content') || Route::is('admin.section-control') || Route::is('admin.why-choose-us') || Route::is('admin.topbar.offer') || Route::is('admin.offer') || Route::is('admin.trending-offer') || Route::is('admin.our-team.*') || Route::is('admin.ad') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('admin.All Section')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-th-large"></i><span style="padding: 3px 6px">{{__('admin.All Section')}}</span></a>
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.section-content') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.section-content', ['lang_code' => 'en']) }}">{{__('admin.Section Content')}}</a></li>
 
@@ -134,7 +136,7 @@
 
 
           <li class="nav-item dropdown {{ Route::is('admin.footer.*') || Route::is('admin.social-link.*') || Route::is('admin.footer-link.*') || Route::is('admin.second-col-footer-link') || Route::is('admin.third-col-footer-link') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('admin.Footer')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-th-large"></i><span style="padding: 3px 6px">{{__('admin.Footer')}}</span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.footer.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.footer.index', ['lang_code' => 'en']) }}">{{__('admin.Footer')}}</a></li>
@@ -150,12 +152,10 @@
 
 
 
-          <li class="{{ Route::is('admin.reports') ? 'active' : '' }}"><a class="nav-link d-none" href="{{ route('admin.reports') }}"><i class="fas fa-file"></i> <span>{{__('admin.Provider/Client Reports')}}</span></a></li>
+          <li class="{{ Route::is('admin.reports') ? 'active' : '' }}"><a class="nav-link d-none" href="{{ route('admin.reports') }}"><i class="fa-duotone fa-lg fa-file"></i> <span style="padding: 3px 6px">{{__('admin.Provider/Client Reports')}}</span></a></li>
 
 
-
-
-          <li class="{{ Route::is('admin.payment-method') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.payment-method') }}"><i class="fas fa-dollar-sign"></i> <span>{{__('admin.Payment Method')}}</span></a></li>
+          <li class="{{ Route::is('admin.payment-method') ? 'active' : '' }}"><a class="nav-link d-none" href="{{ route('admin.payment-method') }}"><i class="fa-duotone fa-lg fa-credit-card"></i> <span style="padding: 3px 6px">{{__('admin.Payment Method')}}</span></a></li>
 
         @php
             $json_module_data = file_get_contents(base_path('modules_statuses.json'));
@@ -165,14 +165,14 @@
 
         @if ($module_status->PaymentGateway)
 
-        <li class="{{ Route::is('admin.payment-addon') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.payment-addon') }}"><i class="fas fa-dollar-sign"></i> <span>{{__('admin.Gateway')}}<span class="badge badge-danger addon_text">{{__('addon')}}</span></span></a></li>
+        <li class="{{ Route::is('admin.payment-addon') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.payment-addon') }}"><i class="fa-duotone fa-lg fa-dollar-sign"></i> <span style="padding: 3px 6px">{{__('admin.Gateway')}}<span class="badge badge-danger addon_text">{{__('addon')}}</span></span></a></li>
 
         @endif
 
 
 
           <li class="nav-item dropdown {{ Route::is('admin.about-us.*') || Route::is('admin.custom-page.*') || Route::is('admin.terms-and-condition.*') || Route::is('admin.privacy-policy.*') || Route::is('admin.faq.*') || Route::is('admin.error-page.*') || Route::is('admin.contact-us.*') || Route::is('admin.become-author') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-columns"></i><span>{{__('admin.Pages')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-columns"></i><span style="padding: 3px 6px">{{__('admin.Pages')}}</span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.about-us.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.about-us.index', ['lang_code' => 'en']) }}">{{__('admin.About Us')}}</a></li>
@@ -195,7 +195,7 @@
           </li>
 
           <li class="nav-item dropdown {{ Route::is('admin.blog-category.*') || Route::is('admin.edit.blog.category') || Route::is('admin.blog.*') || Route::is('admin.popular-blog.*') || Route::is('admin.popular-tags.*') || Route::is('admin.blog-comment.*') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('admin.Blogs')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-th-large"></i><span style="padding: 3px 6px">{{__('admin.Blogs')}}</span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.blog-category.*') || Route::is('admin.edit.blog.category') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.blog-category.index') }}">{{__('admin.Categories')}}</a></li>
@@ -211,7 +211,7 @@
           </li>
 
           <li class="nav-item dropdown {{ Route::is('admin.email-configuration') || Route::is('admin.email-template') || Route::is('admin.edit-email-template') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-envelope"></i><span>{{__('admin.Email Configuration')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-envelope"></i><span style="padding: 3px 6px">{{__('admin.Email Configuration')}}</span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.email-configuration') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.email-configuration') }}">{{__('admin.Setting')}}</a></li>
@@ -220,7 +220,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown {{ Route::is('admin.admin-language') || Route::is('admin.admin-validation-language') || Route::is('admin.website-language') || Route::is('admin.website-validation-language') || Route::is('admin.languages') ? 'active' : '' }}">
-            <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i><span>{{__('admin.Language')}}</span></a>
+            <a href="#" class="nav-link has-dropdown"><i class="fa-duotone fa-lg fa-th-large"></i><span style="padding: 3px 6px">{{__('admin.Language')}}</span></a>
 
             <ul class="dropdown-menu">
                 <li class="{{ Route::is('admin.admin-language') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.admin-language', ['lang_code' => 'en']) }}">{{__('admin.Admin Language')}}</a></li>
@@ -235,23 +235,23 @@
             </ul>
           </li>
 
-          <li class="{{ Route::is('admin.currency.*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.currency.index') }}"><i class="fas fa-dollar-sign"></i> <span>{{__('admin.Currencies')}}</span></a></li>
+          <li class="{{ Route::is('admin.currency.*') ? 'active' : '' }}"><a class="nav-link d-none" href="{{ route('admin.currency.index') }}"><i class="fa-duotone fa-lg fa-dollar-sign"></i> <span style="padding: 3px 6px">{{__('admin.Currencies')}}</span></a></li>
 
-          <li class="{{ Route::is('admin.general-setting') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.general-setting') }}"><i class="fas fa-cog"></i> <span>{{__('admin.Setting')}}</span></a></li>
+          <li class="{{ Route::is('admin.general-setting') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.general-setting') }}"><i class="fa-duotone fa-lg fa-cog"></i> <span style="padding: 3px 6px">{{__('admin.Setting')}}</span></a></li>
 
           @php
               $logedInAdmin = Auth::guard('admin')->user();
           @endphp
           @if ($logedInAdmin->admin_type == 1)
-          <li  class="{{ Route::is('admin.clear-database') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.clear-database') }}"><i class="fas fa-trash"></i> <span>{{__('admin.Clear Database')}}</span></a></li>
+          <li  class="{{ Route::is('admin.clear-database') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.clear-database') }}"><i class="fa-duotone fa-lg fa-trash"></i> <span style="padding: 3px 6px">{{__('admin.Clear Database')}}</span></a></li>
           @endif
 
-          <li class="{{ Route::is('admin.subscriber') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.subscriber') }}"><i class="fas fa-fire"></i> <span>{{__('admin.Subscribers')}}</span></a></li>
+          <li class="{{ Route::is('admin.subscriber') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.subscriber') }}"><i class="fa-duotone fa-lg fa-fire"></i> <span style="padding: 3px 6px">{{__('admin.Subscribers')}}</span></a></li>
 
-          <li class="{{ Route::is('admin.contact-message') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.contact-message') }}"><i class="fas fa-fa fa-envelope"></i> <span>{{__('admin.Contact Message')}}</span></a></li>
+          <li class="{{ Route::is('admin.contact-message') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.contact-message') }}"><i class="fa-duotone fa-lg fa-fa fa-envelope"></i> <span style="padding: 3px 6px">{{__('admin.Contact Message')}}</span></a></li>
 
           @if ($logedInAdmin->admin_type == 1)
-            <li class="{{ Route::is('admin.admin.index') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.admin.index') }}"><i class="fas fa-user"></i> <span>{{__('admin.Admin list')}}</span></a></li>
+            <li class="{{ Route::is('admin.admin.index') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.admin.index') }}"><i class="fa-duotone fa-lg fa-user"></i> <span style="padding: 3px 6px">{{__('admin.Admin list')}}</span></a></li>
           @endif
 
         </ul>

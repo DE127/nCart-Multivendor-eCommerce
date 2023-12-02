@@ -15,7 +15,7 @@
           </div>
 
           <div class="section-body">
-            <a href="{{ route('admin.languages') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Languages')}}</a>
+            <a href="{{ route('admin.languages') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-list"></i> {{__('admin.Languages')}}</a>
             <div class="row mt-4">
                 <div class="col-12">
                   <div class="card">

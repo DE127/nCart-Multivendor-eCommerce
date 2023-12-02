@@ -16,7 +16,7 @@
           </div>
 
         <div class="section-body">
-            <a href="{{ route('admin.email-template') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Email Template')}}</a>
+            <a href="{{ route('admin.email-template') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-list"></i> {{__('admin.Email Template')}}</a>
             <div class="row mt-4">
                 @if ($template->id != 3)
                     <div class="col">

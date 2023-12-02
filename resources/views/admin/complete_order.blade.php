@@ -61,7 +61,7 @@
   
                                           <a href="javascript:;" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger btn-sm" onclick="deleteData({{ $order->id }})"><i class="fa fa-trash" aria-hidden="true"></i></a>
   
-                                          <a href="javascript:;" data-toggle="modal" data-target="#orderModalId-{{ $order->id }}" class="btn btn-warning btn-sm"><i class="fas fa-truck" aria-hidden="true"></i></a>
+                                          <a href="javascript:;" data-toggle="modal" data-target="#orderModalId-{{ $order->id }}" class="btn btn-warning btn-sm"><i class="fa-duotone fa-lg fa-xl fa-xl fa-xl fa-xl fa-xl fa-xl fa-truck" aria-hidden="true"></i></a>
                                           </td>
                                       </tr>
                                     @endforeach

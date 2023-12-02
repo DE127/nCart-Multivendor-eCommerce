@@ -34,7 +34,7 @@
                                             <td>{{ ucfirst($item->name) }}</td>
                                             <td>{{ $item->subject }}</td>
                                             <td>
-                                                <a  href="{{ route('admin.edit-email-template',$item->id) }}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a  href="{{ route('admin.edit-email-template',$item->id) }}" class="btn btn-success btn-sm"><i class="fa-duotone fa-lg fa-edit"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

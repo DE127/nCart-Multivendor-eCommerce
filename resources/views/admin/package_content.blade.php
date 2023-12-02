@@ -11,7 +11,7 @@
           </div>
 
           <div class="section-body">
-            <a href="{{ route('admin.product.index') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Products')}}</a>
+            <a href="{{ route('admin.product.index') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-list"></i> {{__('admin.Products')}}</a>
             <div class="row mt-4">
                 <div class="col-12">
                   <div class="card">
@@ -21,7 +21,7 @@
                       <div class="lang_list_top">
                           <ul class="lang_list">
                               @foreach ($languages as $language)
-                              <li><a href="{{ route('admin.package.content', ['lang_code' => $language->lang_code]) }}"><i class="fas fa-edit"></i> {{ $language->lang_name }}</a></li>
+                              <li><a href="{{ route('admin.package.content', ['lang_code' => $language->lang_code]) }}"><i class="fa-duotone fa-lg fa-edit"></i> {{ $language->lang_name }}</a></li>
                               @endforeach
                           </ul>
                       </div>

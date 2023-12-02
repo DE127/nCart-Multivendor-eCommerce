@@ -15,7 +15,7 @@
           </div>
 
         <div class="section-body">
-            <a href="{{ route('admin.customer-list') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Customer List')}}</a>
+            <a href="{{ route('admin.customer-list') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-list"></i> {{__('admin.Customer List')}}</a>
             <div class="row mt-4">
                 <div class="col">
                     <div class="card">

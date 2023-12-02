@@ -11,7 +11,7 @@
           </div>
 
           <div class="section-body">
-            <a href="{{ route('admin.our-team.index') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Our team')}}</a>
+            <a href="{{ route('admin.our-team.index') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-list"></i> {{__('admin.Our team')}}</a>
             <div class="row mt-4">
                 <div class="col-12">
                   <div class="card">

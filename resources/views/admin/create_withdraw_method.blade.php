@@ -16,7 +16,7 @@
           </div>
 
           <div class="section-body">
-            <a href="{{ route('admin.withdraw-method.index') }}" class="btn btn-primary"><i class="fas fa-list"></i> {{__('admin.Withdraw Method')}}</a>
+            <a href="{{ route('admin.withdraw-method.index') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-list"></i> {{__('admin.Withdraw Method')}}</a>
             <div class="row mt-4">
                 <div class="col-12">
                   <div class="card">

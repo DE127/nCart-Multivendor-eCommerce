@@ -30,7 +30,7 @@
                       <hr>
                       <ul class="lang_list">
                           @foreach ($languages as $language)
-                          <li><a href="{{ route('admin.product.edit',['product' => $product->id, 'lang_code' => $language->lang_code]) }}"><i class="fas fa-edit"></i> {{ $language->lang_name }}</a></li>
+                          <li><a href="{{ route('admin.product.edit',['product' => $product->id, 'lang_code' => $language->lang_code]) }}"><i class="fa-duotone fa-lg fa-edit"></i> {{ $language->lang_name }}</a></li>
                           @endforeach
                       </ul>
 

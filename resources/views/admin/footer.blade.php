@@ -31,6 +31,7 @@
 
   <script src="{{ asset('backend/js/popper.min.js') }}"></script>
   <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('backend/fontawesome/js/all.min.js') }}"></script>
   <script src="{{ asset('backend/datatables/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
   <script src="{{ asset('backend/js/jquery.nicescroll.min.js') }}"></script>

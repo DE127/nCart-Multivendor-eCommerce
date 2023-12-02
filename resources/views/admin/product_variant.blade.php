@@ -46,10 +46,10 @@
                                         <td>{{ html_decode($product_variant->variant_name) }}</td>
                                         <td>{{ $setting->currency_icon }}{{ html_decode($product_variant->price) }}</td>
                                         <td>
-                                            <a href="{{ route('admin.download-existing-file', $product_variant->file_name) }}" class="btn btn-success btn-sm"> <i class="fas fa-download"></i> </a>
-                                            <a href="javascript:;" data-toggle="modal" data-target="#editVariant-{{ $product_variant->id }}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i> </a>
+                                            <a href="{{ route('admin.download-existing-file', $product_variant->file_name) }}" class="btn btn-success btn-sm"> <i class="fa-duotone fa-lg fa-download"></i> </a>
+                                            <a href="javascript:;" data-toggle="modal" data-target="#editVariant-{{ $product_variant->id }}" class="btn btn-primary btn-sm"> <i class="fa-duotone fa-lg fa-edit"></i> </a>
 
-                                            <a data-toggle="modal" data-target="#deleteModal" href="javascript:;" class="btn btn-danger btn-sm" onclick="deleteData({{ $product_variant->id }})"> <i class="fas fa-trash"></i> </a>
+                                            <a data-toggle="modal" data-target="#deleteModal" href="javascript:;" class="btn btn-danger btn-sm" onclick="deleteData({{ $product_variant->id }})"> <i class="fa-duotone fa-lg fa-trash"></i> </a>
                                         </td>
                                     </tr>
                                 @endforeach

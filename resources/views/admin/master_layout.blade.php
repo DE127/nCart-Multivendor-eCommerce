@@ -11,12 +11,12 @@
       <nav class="navbar navbar-expand-lg main-navbar">
         <div class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fa-duotone fa-lg fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fa-duotone fa-lg fa-search"></i></a></li>
           </ul>
         </div>
         <ul class="navbar-nav navbar-right">
-          <li class="dropdown dropdown-list-toggle"><a target="_blank" href="{{ route('home') }}" class="nav-link nav-link-lg"><i class="fas fa-home"></i> {{__('admin.Visit Website')}}</i></a>
+          <li class="dropdown dropdown-list-toggle"><a target="_blank" href="{{ route('home') }}" class="nav-link nav-link-lg"><i class="fa-duotone fa-lg fa-home"></i> {{__('admin.Visit Website')}}</i></a>
 
           </li>
 
@@ -44,7 +44,7 @@
               <div class="dropdown-divider"></div>
               <a href="{{ route('admin.logout') }}" class="dropdown-item has-icon text-danger" onclick="event.preventDefault();
               document.getElementById('admin-logout-form').submit();">
-                <i class="fas fa-sign-out-alt"></i> {{__('admin.Logout')}}
+                <i class="fa-duotone fa-lg fa-sign-out-alt"></i> {{__('admin.Logout')}}
               </a>
             {{-- start admin logout form --}}
             <form id="admin-logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
@@ -72,7 +72,7 @@
           {{ $footer->copyright }}
         </div>
         <div class="footer-right">
-            Current Version : {{ $setting->app_version }}
+            Current Version : 1.0.0
           </div>
       </footer>
     </div>

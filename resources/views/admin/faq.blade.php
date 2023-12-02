@@ -15,7 +15,7 @@
           </div>
 
           <div class="section-body">
-            <a href="{{ route('admin.faq.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> {{__('admin.Add New')}}</a>
+            <a href="{{ route('admin.faq.create') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-plus"></i> {{__('admin.Add New')}}</a>
             <div class="row mt-4">
                 <div class="col">
                   <div class="card">
