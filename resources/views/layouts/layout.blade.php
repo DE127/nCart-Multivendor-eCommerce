@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi"/>
     <meta name="_token" content="{{ csrf_token() }}">
     <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
     @yield('title')
@@ -17,26 +18,26 @@
         $front_lang = Session::put('front_lang', $language->lang_code);
         }
         $lang_direction = App\Models\Language::where('lang_code', $front_lang)->first();
-    
+
         $currency_code = Session::get('currency_code');
         $currency_icon = Session::get('currency_icon');
         $currency_rate = Session::get('currency_rate');
         $currency_position = Session::get('currency_position');
-    
+
         $default_currency = App\Models\MultiCurrency::where('is_default', 'Yes')->first();
-    
+
         if($currency_code == ''){
         $currency_code = Session::put('currency_code', $default_currency->currency_code);
         }
-    
+
         if($currency_icon == ''){
         $currency_icon = Session::put('currency_icon', $default_currency->currency_icon);
         }
-    
+
         if($currency_rate == ''){
         $currency_rate = Session::put('currency_rate', $default_currency->currency_rate);
         }
-    
+
         if($currency_position == ''){
         $currency_position = Session::put('currency_position', $default_currency->currency_position);
         }
@@ -76,24 +77,6 @@
         <!-- site__body -->
         @yield('frontend-content')
         <!-- site__body / end -->
-        <!--=============================
-        SUBSCRIBE END
-    ==============================-->
-        @endif
-
-
-        @php
-            $footer = App\Models\Footer::first();
-            $item_sold = App\Models\OrderItem::get()->count();
-            $total_earning = App\Models\OrderItem::get()->sum('price');
-            $total_user = App\Models\User::where(['email_verified' => 1, 'status' => 1])->get()->count();
-            $social_links=App\Models\FooterSocialLink::get();
-            $setting = App\Models\Setting::with('settinglangfrontend')->first();
-        @endphp
-
-        <!--=============================
-        FOOTER START
-        ==============================-->
         <!-- site__footer -->
         @include('partials.footer')
         <!-- site__footer / end -->
@@ -214,20 +197,20 @@
         @endif
     </script>
     @if ($errors->any())
-    @foreach ($errors->all() as $error)
-    <script>
-        toastr.error('{{ $error }}');
-    </script>
-    @endforeach
-    @endif
+        @foreach ($errors->all() as $error)
+            <script>
+                toastr.error('{{ $error }}');
+            </script>
+        @endforeach
+   @endif
 
     @stack('frontend_js')
 
     <script>
-        (function($) {
+        (function ($) {
             "use strict";
-            $(document).ready(function() {
-                $("#fsubscriberForm").on('submit', function(e) {
+            $(document).ready(function () {
+                $("#fsubscriberForm").on('submit', function (e) {
                     e.preventDefault();
                     $('#fsubShowSpain').removeClass('d-none');
                     $('#fsubSubmitBtn').addClass('d-none');
@@ -246,7 +229,7 @@
                         type: 'POST',
                         data: $('#fsubscriberForm').serialize(),
                         url: "{{ route('subscribe-request') }}",
-                        success: function(response) {
+                        success: function (response) {
                             if (response.status == 1) {
                                 toastr.success(response.message);
                                 let subscribe = "{{__('user.Subscribe')}}"
@@ -267,7 +250,7 @@
                                 $('#fsubSubmitBtn').removeClass('d-none');
                             }
                         },
-                        error: function(err) {
+                        error: function (err) {
                             $('#fsubShowSpain').addClass('d-none');
                             $('#fsubSubmitBtn').removeClass('d-none');
                             toastr.error('Something went wrong');
@@ -280,7 +263,7 @@
                 });
 
 
-                $("#footerTopSubscriberForm").on('submit', function(e) {
+                $("#footerTopSubscriberForm").on('submit', function (e) {
                     e.preventDefault();
                     $('#footerTopSubShowSpain').removeClass('d-none');
                     $('#footerTopSubSubmitBtn').addClass('d-none');
@@ -299,7 +282,7 @@
                         type: 'POST',
                         data: $('#footerTopSubscriberForm').serialize(),
                         url: "{{ route('subscribe-request') }}",
-                        success: function(response) {
+                        success: function (response) {
                             if (response.status == 1) {
                                 toastr.success(response.message);
                                 let subscribe = "{{__('user.Subscribe')}}"
@@ -320,7 +303,7 @@
                                 $('#footerTopSubSubmitBtn').removeClass('d-none');
                             }
                         },
-                        error: function(err) {
+                        error: function (err) {
                             $('#footerTopSubShowSpain').addClass('d-none');
                             $('#footerTopSubSubmitBtn').removeClass('d-none');
                             toastr.error('Something went wrong');
@@ -332,16 +315,16 @@
                     });
                 });
 
-                $("#country_id").on("change", function() {
+                $("#country_id").on("change", function () {
                     var countryId = $("#country_id").val();
                     if (countryId) {
                         $.ajax({
                             type: "get",
                             url: "{{url('/state-by-country/')}}" + "/" + countryId,
-                            success: function(response) {
+                            success: function (response) {
                                 $("#state_id").html(response.states);
                             },
-                            error: function(err) {
+                            error: function (err) {
 
                             }
                         })
@@ -352,16 +335,16 @@
 
                 });
 
-                $("#state_id").on("change", function() {
+                $("#state_id").on("change", function () {
                     var stateId = $("#state_id").val();
                     if (stateId) {
                         $.ajax({
                             type: "get",
                             url: "{{url('/city-by-state/')}}" + "/" + stateId,
-                            success: function(response) {
+                            success: function (response) {
                                 $("#city_id").html(response.cities);
                             },
-                            error: function(err) {
+                            error: function (err) {
 
                             }
                         })
@@ -380,9 +363,9 @@
                     tinycomments_mode: 'embedded',
                     tinycomments_author: 'Author name',
                     mergetags_list: [{
-                            value: 'First.Name',
-                            title: 'First Name'
-                        },
+                        value: 'First.Name',
+                        title: 'First Name'
+                    },
                         {
                             value: 'Email',
                             title: 'Email'
@@ -395,6 +378,7 @@
 
     <script>
         "use strict";
+
         //wishlist start
         function addWishlist(product_id) {
             $.ajax({
@@ -404,7 +388,7 @@
                 type: "POST",
                 url: "{{ url('/add/wishlist/') }}/" + product_id,
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     if (response.success) {
                         toastr.success(response.success);
                     } else {
@@ -453,7 +437,7 @@
                     author_id: author_id,
                 },
                 url: "{{ url('/add-to-cart') }}" + "/" + product_id,
-                success: function(response) {
+                success: function (response) {
                     miniCart();
                     if (response.status == 1) {
                         toastr.success(response.message);
@@ -471,11 +455,12 @@
                 type: "GET",
                 dataType: "json",
                 url: "{{ url('/mini-cart') }}",
-                success: function(response) {
+                success: function (response) {
                     $('#cartQty').text(response.cartQty);
                 }
             });
         }
+
         miniCart();
         //mini cart function end
 
@@ -485,41 +470,42 @@
                 type: "GET",
                 dataType: "json",
                 url: "{{ url('/cart-item') }}",
-                success: function(response) {
+                success: function (response) {
                     let cartItem = "";
                     $('#cartTotal').text(response.cartTotal);
-                    $.each(response.carts, function(key, value) {
+                    $.each(response.carts, function (key, value) {
                         cartItem += `<tr>
-                                    <td class="img">
-                                        <a href="{{ url('/product/${value.options.slug}') }}">
-                                            <img src="${ value.options.image }" alt="cart item"
-                                                class="img-fluid w-100">
-                                        </a>
-                                    </td>
-                                    <td class="description">
-                                        <h3><a href="{{ url('/product/${value.options.slug}') }}">${value.name}</a></h3>
-                                        <p>
-                                            <span>{{__('user.Item by')}}</span> ${value.options.author}
-                                            <b class="${value.options.variant_name!=null?'':'d-none'}">${value.options.variant_name!=null?value.options.variant_name:''}</b>
-                                            <b class="${value.options.price_type!=null?'':'d-none'}">${value.options.price_type!=null?value.options.price_type:''}</b>
-                                        </p>
+                                        <td class="img">
+                                            <a href="{{ url('/product/${value.options.slug}') }}">
+                                                <img src="${value.options.image}" alt="cart item"
+                                                    class="img-fluid w-100">
+                                            </a>
+                                        </td>
+                                        <td class="description">
+                                            <h3><a href="{{ url('/product/${value.options.slug}') }}">${value.name}</a></h3>
+                                            <p>
+                                                <span>{{__('user.Item by')}}</span> ${value.options.author}
+                                                <b class="${value.options.variant_name != null ? '' : 'd-none'}">${value.options.variant_name != null ? value.options.variant_name : ''}</b>
+                                                <b class="${value.options.price_type != null ? '' : 'd-none'}">${value.options.price_type != null ? value.options.price_type : ''}</b>
+                                            </p>
 
-                                    </td>
-                                    <td class="price">
-                                        <p>${response.setting.currency_icon+value.price}</p>
-                                    </td>
-                                    <td class="discount">
-                                        <p>${value.options.category}</p>
-                                    </td>
-                                    <td class="action">
-                                        <a href="javascript:;" id="${value.rowId}" onclick="cartRemove(this.id)"><i class="far fa-times"></i></a>
-                                    </td>
-                            </tr>`;
+                                        </td>
+                                        <td class="price">
+                                            <p>${response.setting.currency_icon + value.price}</p>
+                                        </td>
+                                        <td class="discount">
+                                            <p>${value.options.category}</p>
+                                        </td>
+                                        <td class="action">
+                                            <a href="javascript:;" id="${value.rowId}" onclick="cartRemove(this.id)"><i class="far fa-times"></i></a>
+                                        </td>
+                                </tr>`;
                     });
                     $('#cartItem').html(cartItem);
                 }
             });
         }
+
         cartItem();
 
         function cartRemove(rowId) {
@@ -527,7 +513,7 @@
                 type: "GET",
                 dataType: "json",
                 url: "{{ url('/cart-remove') }}" + "/" + rowId,
-                success: function(response) {
+                success: function (response) {
                     miniCart();
                     cartItem();
                     couponCalculation();
@@ -552,7 +538,7 @@
                         coupon_name: coupon_name,
                     },
                     url: "{{ url('/coupon-apply') }}",
-                    success: function(response) {
+                    success: function (response) {
                         if (response.status == 1) {
                             $('#coupon_name').val('');
                             couponCalculation();
@@ -575,22 +561,22 @@
                 type: "GET",
                 url: "{{ url('/coupon-calculation') }}",
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     if (data.total) {
                         $('#calprice').html(`
-                        <p class="subtotal">{{__('user.Subtotal')}} <span>${data.setting.currency_icon}<span id="cartTotal">${data.total}</span></span></p>
-                        <p class="discount">{{__('user.Discount')}} <span>(-)${data.setting.currency_icon} 0</span></p>
-                        <p class="total">{{__('user.Total')}} <span><span>${data.setting.currency_icon}<span>${data.total}</span></span></p>
-                        <a class="common_btn" href="{{ route('checkout') }}">{{__('user.Proceed to Checkout')}}</a>
-                    `);
+                            <p class="subtotal">{{__('user.Subtotal')}} <span>${data.setting.currency_icon}<span id="cartTotal">${data.total}</span></span></p>
+                            <p class="discount">{{__('user.Discount')}} <span>(-)${data.setting.currency_icon} 0</span></p>
+                            <p class="total">{{__('user.Total')}} <span><span>${data.setting.currency_icon}<span>${data.total}</span></span></p>
+                            <a class="common_btn" href="{{ route('checkout') }}">{{__('user.Proceed to Checkout')}}</a>
+                        `);
                     } else {
                         $('#calprice').html(`
-                        <p class="subtotal">{{__('user.Subtotal')}} <span>${data.setting.currency_icon}<span id="cartTotal">${data.sub_total}</span></span></p>
-                        <p class="subtotal">{{__('user.Coupon')}} <span>${data.coupon_name} <button type="submit" class="btn btn-danger btn-sm" onclick="couponRemove()"><i class="fa fa-times"></i></button></span></p>
-                        <p class="discount">{{__('user.Discount')}} <span>(-)${data.setting.currency_icon} ${data.discount_amount}</span></p>
-                        <p class="total">{{__('user.Total')}} <span><span>${data.setting.currency_icon}</span>${data.total_amount}</span></p>
-                        <a class="common_btn" href="{{ route('checkout') }}">{{__('user.Proceed to Checkout')}}</a>
-                    `);
+                            <p class="subtotal">{{__('user.Subtotal')}} <span>${data.setting.currency_icon}<span id="cartTotal">${data.sub_total}</span></span></p>
+                            <p class="subtotal">{{__('user.Coupon')}} <span>${data.coupon_name} <button type="submit" class="btn btn-danger btn-sm" onclick="couponRemove()"><i class="fa fa-times"></i></button></span></p>
+                            <p class="discount">{{__('user.Discount')}} <span>(-)${data.setting.currency_icon} ${data.discount_amount}</span></p>
+                            <p class="total">{{__('user.Total')}} <span><span>${data.setting.currency_icon}</span>${data.total_amount}</span></p>
+                            <a class="common_btn" href="{{ route('checkout') }}">{{__('user.Proceed to Checkout')}}</a>
+                        `);
                     }
                 }
             });
@@ -602,7 +588,7 @@
                 type: "GET",
                 url: "{{ url('/coupon-remove') }}",
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     $('#coupon_name').val('');
                     couponCalculation();
                     if (response.status == 1) {
@@ -611,6 +597,7 @@
                 }
             })
         }
+
         //coupon end
     </script>
 </body>

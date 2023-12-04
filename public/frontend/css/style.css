@@ -392,7 +392,7 @@ h6 {
 // .site
 */
 .site {
-  min-height: 100%;
+  min-height: 0 !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
