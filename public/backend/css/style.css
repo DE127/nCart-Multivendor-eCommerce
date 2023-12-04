@@ -1605,7 +1605,7 @@ h6 .badge {
       left: 34px;
       content: '\f0d8';
       font-weight: 600;
-      font-family: 'Font Awesome 5 Free';
+      font-family: 'Font Awesome 6 Pro';
       color: #fff;
       font-size: 30px; }
     .navbar .form-inline .search-result .search-header {
@@ -2575,7 +2575,7 @@ body.sidebar-mini .main-sidebar {
         background-color: #fff; }
         body.sidebar-mini .main-sidebar .sidebar-menu > li ul.dropdown-menu li a.has-dropdown:after {
           content: "";
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 6 Pro';
           font-weight: 900;
           position: absolute;
           top: 50%;
@@ -2688,7 +2688,7 @@ body.layout-3 .navbar.navbar-secondary {
       margin-right: 35px; }
       body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link.has-dropdown:after {
         content: "";
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 6 Pro';
         font-weight: 900;
         position: absolute;
         top: 50%;
@@ -2724,7 +2724,7 @@ body.layout-3 .navbar.navbar-secondary {
       padding-right: 20px !important; }
       body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item .dropdown-menu .nav-item .nav-link.has-dropdown:after {
         content: "";
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 6 Pro';
         font-weight: 900;
         position: absolute;
         top: 50%;
@@ -2828,7 +2828,7 @@ body.layout-3 .main-footer {
       background-color: #f8fafb; }
     .main-sidebar .sidebar-menu li a.has-dropdown:after {
       content: "";
-      font-family: 'Font Awesome 5 Free';
+      font-family: 'Font Awesome 6 Pro';
       font-weight: 900;
       position: absolute;
       top: 50%;

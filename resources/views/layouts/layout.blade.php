@@ -8,38 +8,38 @@
     <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
     @yield('title')
     @php
-    $setting = App\Models\Setting::with('settinglangfrontend')->first();
-    $languages = App\Models\Language::where('status', 1)->get();
-    $currencies = App\Models\MultiCurrency::where('status', 1)->get();
-    $front_lang = Session::get('front_lang');
-    $language = App\Models\Language::where('is_default', 'Yes')->first();
-    if($front_lang == ''){
-    $front_lang = Session::put('front_lang', $language->lang_code);
-    }
-    $lang_direction = App\Models\Language::where('lang_code', $front_lang)->first();
-
-    $currency_code = Session::get('currency_code');
-    $currency_icon = Session::get('currency_icon');
-    $currency_rate = Session::get('currency_rate');
-    $currency_position = Session::get('currency_position');
-
-    $default_currency = App\Models\MultiCurrency::where('is_default', 'Yes')->first();
-
-    if($currency_code == ''){
-    $currency_code = Session::put('currency_code', $default_currency->currency_code);
-    }
-
-    if($currency_icon == ''){
-    $currency_icon = Session::put('currency_icon', $default_currency->currency_icon);
-    }
-
-    if($currency_rate == ''){
-    $currency_rate = Session::put('currency_rate', $default_currency->currency_rate);
-    }
-
-    if($currency_position == ''){
-    $currency_position = Session::put('currency_position', $default_currency->currency_position);
-    }
+        $setting = App\Models\Setting::with('settinglangfrontend')->first();
+        $languages = App\Models\Language::where('status', 1)->get();
+        $currencies = App\Models\MultiCurrency::where('status', 1)->get();
+        $front_lang = Session::get('front_lang');
+        $language = App\Models\Language::where('is_default', 'Yes')->first();
+        if($front_lang == ''){
+        $front_lang = Session::put('front_lang', $language->lang_code);
+        }
+        $lang_direction = App\Models\Language::where('lang_code', $front_lang)->first();
+    
+        $currency_code = Session::get('currency_code');
+        $currency_icon = Session::get('currency_icon');
+        $currency_rate = Session::get('currency_rate');
+        $currency_position = Session::get('currency_position');
+    
+        $default_currency = App\Models\MultiCurrency::where('is_default', 'Yes')->first();
+    
+        if($currency_code == ''){
+        $currency_code = Session::put('currency_code', $default_currency->currency_code);
+        }
+    
+        if($currency_icon == ''){
+        $currency_icon = Session::put('currency_icon', $default_currency->currency_icon);
+        }
+    
+        if($currency_rate == ''){
+        $currency_rate = Session::put('currency_rate', $default_currency->currency_rate);
+        }
+    
+        if($currency_position == ''){
+        $currency_position = Session::put('currency_position', $default_currency->currency_position);
+        }
 
     @endphp
     <link rel="icon" type="image/png" href="{{ asset($setting->favicon) }}">
@@ -74,8 +74,26 @@
         @include('partials.header')
         <!-- desktop site__header / end -->
         <!-- site__body -->
-        @yield('content')
+        @yield('frontend-content')
         <!-- site__body / end -->
+        <!--=============================
+        SUBSCRIBE END
+    ==============================-->
+        @endif
+
+
+        @php
+            $footer = App\Models\Footer::first();
+            $item_sold = App\Models\OrderItem::get()->count();
+            $total_earning = App\Models\OrderItem::get()->sum('price');
+            $total_user = App\Models\User::where(['email_verified' => 1, 'status' => 1])->get()->count();
+            $social_links=App\Models\FooterSocialLink::get();
+            $setting = App\Models\Setting::with('settinglangfrontend')->first();
+        @endphp
+
+        <!--=============================
+        FOOTER START
+        ==============================-->
         <!-- site__footer -->
         @include('partials.footer')
         <!-- site__footer / end -->
