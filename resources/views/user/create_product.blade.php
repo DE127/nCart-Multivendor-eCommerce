@@ -88,7 +88,7 @@
                     <div class="col-xl-6">
                         <div class="wsus__comment_single_input">
                             <fieldset>
-                                <legend>{{__('user.Regular price')}}* ({{__('USD Price')}})</legend>
+                                <legend>{{__('user.Regular price')}}* (VNĐ)</legend>
                                 <input type="text" name="regular_price" value="{{ old('regular_price') }}">
                             </fieldset>
                         </div>
@@ -96,7 +96,7 @@
                     <div class="col-xl-6">
                         <div class="wsus__comment_single_input">
                             <fieldset>
-                                <legend>{{__('user.Extend price')}}* ({{__('USD Price')}})</legend>
+                                <legend>{{__('user.Extend price')}}* (VNĐ)</legend>
                                 <input type="text" name="extend_price" value="{{ old('extend_price') }}">
                             </fieldset>
                         </div>
@@ -139,15 +139,15 @@
                                     <h4>{{__('user.Others feature')}}</h4>
                                 </div>
                                 <div class="col-12">
-                                    <input type="checkbox" name="high_resolution" id="high_resolution"> 
+                                    <input type="checkbox" name="high_resolution" id="high_resolution">
                                     <label for="high_resolution" class="mr-3" >{{__('user.High Resolution')}}</label>
                                 </div>
                                 <div class="col-12">
-                                    <input type="checkbox" name="cross_browser" id="cross_browser"> 
+                                    <input type="checkbox" name="cross_browser" id="cross_browser">
                                     <label for="cross_browser" class="mr-3" >{{__('user.Cross Browser')}}</label>
                                 </div>
                                 <div class="col-12">
-                                    <input type="checkbox" name="documentation" id="documentation"> 
+                                    <input type="checkbox" name="documentation" id="documentation">
                                     <label for="documentation" class="mr-3" >{{__('user.Documentation')}}</label>
                                 </div>
                                 <div class="col-12">
@@ -170,7 +170,7 @@
     ==============================-->
 @endsection
 @push('frontend_js')
-    
+
 <script>
     (function($) {
         "use strict";

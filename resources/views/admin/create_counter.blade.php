@@ -12,28 +12,28 @@
 
           <div class="section-body">
             <div class="row mt-4">
-                <div class="col-12">
-                    <div class="card">
-                      <div class="card-body">
-                        <h3 class="h3 mb-3 text-gray-800">{{__('admin.Language')}}</h3>
-                        <hr>
-                        <div class="lang_list_top">
-                            <ul class="lang_list">
-                                @foreach ($languages as $language)
-                                <li><a href="{{ route('admin.counter', ['lang_code' => $language->lang_code]) }}"><i class="fa-duotone fa-lg fa-edit"></i> {{ $language->lang_name }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
+{{--                <div class="col-12">--}}
+{{--                    <div class="card">--}}
+{{--                      <div class="card-body">--}}
+{{--                        <h3 class="h3 mb-3 text-gray-800">{{__('admin.Language')}}</h3>--}}
+{{--                        <hr>--}}
+{{--                        <div class="lang_list_top">--}}
+{{--                            <ul class="lang_list">--}}
+{{--                                @foreach ($languages as $language)--}}
+{{--                                <li><a href="{{ route('admin.counter', ['lang_code' => $language->lang_code]) }}"><i class="fa-duotone fa-lg fa-edit"></i> {{ $language->lang_name }}</a></li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
 
-                        <div class="alert alert-danger mt-2" role="alert">
-                            @php
-                                $current_language = App\Models\Language::where('lang_code', request()->get('lang_code'))->first();
-                            @endphp
-                            <p>{{__('admin.Your editing mode')}} : <b>{{ $current_language->lang_name }}</b></p> 
-                        </div> 
-                      </div>
-                    </div>
-                </div>
+{{--                        <div class="alert alert-danger mt-2" role="alert">--}}
+{{--                            @php--}}
+{{--                                $current_language = App\Models\Language::where('lang_code', request()->get('lang_code'))->first();--}}
+{{--                            @endphp--}}
+{{--                            <p>{{__('admin.Your editing mode')}} : <b>{{ $current_language->lang_name }}</b></p> --}}
+{{--                        </div> --}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">
@@ -62,7 +62,7 @@
                                     <hr>
                                 </div>
                                 @endif
-                               
+
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>{{__('admin.Item one icon')}}</label>
@@ -70,13 +70,13 @@
                                             <img class="icon_w100" src="{{ asset($counter->counter_icon1) }}" alt="">
                                         </div>
                                     </div>
-    
+
                                     <div class="form-group">
                                         <label>{{__('admin.New icon')}} </label>
                                         <input type="file" class="form-control-file" name="counter_icon1">
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>{{__('admin.Item two icon')}}</label>
@@ -84,7 +84,7 @@
                                             <img class="icon_w100" src="{{ asset($counter->counter_icon2) }}" alt="">
                                         </div>
                                     </div>
-    
+
                                     <div class="form-group">
                                         <label>{{__('admin.New icon')}} </label>
                                         <input type="file" class="form-control-file" name="counter_icon2">
@@ -98,7 +98,7 @@
                                             <img class="icon_w100" src="{{ asset($counter->counter_icon3) }}" alt="">
                                         </div>
                                     </div>
-    
+
                                     <div class="form-group">
                                         <label>{{__('admin.New icon')}} </label>
                                         <input type="file" class="form-control-file" name="counter_icon3">
@@ -112,7 +112,7 @@
                                             <img class="icon_w100" src="{{ asset($counter->counter_icon4) }}" alt="">
                                         </div>
                                     </div>
-    
+
                                     <div class="form-group col-12">
                                         <label>{{__('admin.New icon')}} </label>
                                         <input type="file" class="form-control-file" name="counter_icon4">

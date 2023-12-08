@@ -66,17 +66,17 @@
                                 </div>
 
                                 <div class="form-group col-12">
-                                    <label>{{__('admin.Preview link')}} <span class="text-danger">*</span></label>
+                                    <label>{{__('admin.Preview link')}}</label>
                                    <input type="text" class="form-control" name="preview_link" value="{{ old('preview_link') }}">
                                 </div>
 
                                 <div class="form-group col-12">
-                                    <label>{{__('admin.Regular price')}} <span class="text-danger">* ({{__('USD Price')}})</span></label>
+                                    <label>{{__('admin.Regular price')}} <span class="text-danger">* (VNĐ)</span></label>
                                    <input type="text" class="form-control" name="regular_price" value="{{ old('regular_price') }}">
                                 </div>
 
                                 <div class="form-group col-12">
-                                    <label>{{__('admin.Extend price')}} <span class="text-danger">* ({{__('USD Price')}})</span></label>
+                                    <label>{{__('admin.Extend price')}} <span class="text-danger">(VNĐ)</span></label>
                                    <input type="text" class="form-control" name="extend_price" value="{{ old('extend_price') }}">
                                 </div>
 

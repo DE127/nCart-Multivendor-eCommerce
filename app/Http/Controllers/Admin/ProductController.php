@@ -47,7 +47,7 @@ class ProductController extends Controller
     }
 
     public function pending_product(){
-    
+
         $pending_products = Product::with('category', 'productlangadmin')->where('status', 0)->orderBy('id','desc')->get();
         return view('admin.pending_product', compact('pending_products'));
 
@@ -62,7 +62,7 @@ class ProductController extends Controller
     }
 
     public function update_topbar_offer(Request $request){
-        
+
         $rules = [
             'title'=>'required',
             'link'=>session()->get('admin_lang') == $request->lang_code ? 'required':'',
@@ -81,7 +81,7 @@ class ProductController extends Controller
         $discount = ProductDiscount::first();
         $product_discount_language = ProductDiscountLanguage::where(['discount_id' => $discount->id, 'lang_code' => $request->lang_code])->first();
 
-        
+
         if($request->offer){
             $discount->offer = $request->offer;
         }
@@ -93,13 +93,13 @@ class ProductController extends Controller
         if($request->end_time){
             $discount->end_time = $request->end_time;
         }
-        
+
         if (session()->get('admin_lang') == $request->lang_code) {
             $discount->status = $request->status;
         }
-        
+
         $discount->save();
-        
+
         $product_discount_language->title = $request->title;
         $product_discount_language->save();
 
@@ -116,16 +116,14 @@ class ProductController extends Controller
 
         return view('admin.package_content', compact('package_content', 'languages', 'package_content_language'));
     }
-    
+
     public function update_package_content(Request $request){
         $rules = [
             'regular_content'=>'required',
-            'extend_content'=>'required',
         ];
 
         $customMessages = [
             'regular_content.required' => trans('admin_validation.Regular content is required'),
-            'extend_content.required' => trans('admin_validation.Extend content is required'),
         ];
         $this->validate($request, $rules,$customMessages);
 
@@ -196,9 +194,7 @@ class ProductController extends Controller
             'category'=>'required',
             'name'=>'required',
             'slug'=>'required|unique:products',
-            'preview_link'=>'required',
             'regular_price'=>'required|numeric',
-            'extend_price'=>'required|numeric',
             'description'=>'required',
             'tags'=>'required',
             'status'=>'required',
@@ -216,10 +212,7 @@ class ProductController extends Controller
             'name.required' => trans('admin_validation.Name is required'),
             'slug.required' => trans('admin_validation.Slug is required'),
             'slug.unique' => trans('admin_validation.Slug already exist'),
-            'preview_link.required' => trans('admin_validation.Preview link is required'),
             'regular_price.required' => trans('admin_validation.Regular price is required'),
-            'extend_price.required' => trans('admin_validation.Extend price is required'),
-            'extend_price.numeric' => trans('admin_validation.Extend price should be numeric value'),
             'regular_price.numeric' => trans('admin_validation.Regular price should be numeric value'),
             'description.required' => trans('admin_validation.Description is required'),
             'tags.required' => trans('admin_validation.Tag is required'),
@@ -253,7 +246,7 @@ class ProductController extends Controller
             $request->upload_file->move(public_path('uploads/custom-images/'),$image_name);
             $product->download_file = $image_name;
         }
-        
+
         $product->product_type = $request->product_type;
         $product->author_id = $request->author;
 
@@ -301,7 +294,6 @@ class ProductController extends Controller
             'category'=>'required',
             'name'=>'required',
             'slug'=>'required|unique:products',
-            'preview_link'=>'required',
             'regular_price'=>'required',
             'description'=>'required',
             'tags'=>'required',
@@ -317,7 +309,6 @@ class ProductController extends Controller
             'name.required' => trans('admin_validation.Name is required'),
             'slug.required' => trans('admin_validation.Slug is required'),
             'slug.unique' => trans('admin_validation.Slug already exist'),
-            'preview_link.required' => trans('admin_validation.Preview link is required'),
             'regular_price.required' => trans('admin_validation.Regular price is required'),
             'description.required' => trans('admin_validation.Description is required'),
             'tags.required' => trans('admin_validation.Tag is required'),
@@ -419,9 +410,9 @@ class ProductController extends Controller
             'author'=> session()->get('admin_lang') == $request->lang_code ? 'required':'',
             'category'=> session()->get('admin_lang') == $request->lang_code ? 'required':'',
             'name'=>'required',
-            'preview_link'=> session()->get('admin_lang') == $request->lang_code ? 'required':'',
+            'preview_link'=> session()->get('admin_lang') == $request->lang_code ? '':'',
             'regular_price'=> session()->get('admin_lang') == $request->lang_code ? 'required|numeric':'',
-            'extend_price'=> session()->get('admin_lang') == $request->lang_code ? 'required|numeric':'',
+            'extend_price'=> session()->get('admin_lang') == $request->lang_code ? '':'',
             'description'=>'required',
             'tags'=>'required',
             'status'=> session()->get('admin_lang') == $request->lang_code ? 'required':'',
@@ -431,15 +422,12 @@ class ProductController extends Controller
         $customMessages = [
             'download_file_type.required' => trans('admin_validation.Upload file type is required'),
             'upload_file.required' => trans('admin_validation.Upload file is required'),
-            'download_link.required' => trans('admin_validation.Download link is required'),
             'author.required' => trans('admin_validation.Author is required'),
             'category.required' => trans('admin_validation.Category is required'),
             'name.required' => trans('admin_validation.Name is required'),
             'slug.required' => trans('admin_validation.Slug is required'),
             'slug.unique' => trans('admin_validation.Slug already exist'),
             'regular_price.required' => trans('admin_validation.Regular price is required'),
-            'extend_price.required' => trans('admin_validation.Extend price is required'),
-            'extend_price.numeric' => trans('admin_validation.Extend price should be numeric value'),
             'regular_price.numeric' => trans('admin_validation.Regular price should be numeric value'),
             'description.required' => trans('admin_validation.Description is required'),
             'tags.required' => trans('admin_validation.Tag is required'),
@@ -459,12 +447,12 @@ class ProductController extends Controller
                 Image::make($request->thumb_image)
                     ->save(public_path().'/'.$image_name);
                 $product->thumbnail_image = $image_name;
-    
+
                 if($old_image){
                     if(File::exists(public_path().'/'.$old_image))unlink(public_path().'/'.$old_image);
                 }
             }
-    
+
             if($request->product_icon){
                 $old_icon = $product->product_icon;
                 $extention = $request->product_icon->getClientOriginalExtension();
@@ -473,12 +461,12 @@ class ProductController extends Controller
                 Image::make($request->product_icon)
                     ->save(public_path().'/'.$image_name);
                 $product->product_icon = $image_name;
-    
+
                 if($old_icon){
                     if(File::exists(public_path().'/'.$old_icon))unlink(public_path().'/'.$old_icon);
                 }
             }
-    
+
             if($request->file('upload_file')){
                 $old_download_file = $product->download_file;
                 $extention = $request->upload_file->getClientOriginalExtension();
@@ -486,12 +474,12 @@ class ProductController extends Controller
                 $request->upload_file->move(public_path('uploads/custom-images/'),$image_name);
                 $product->download_file = $image_name;
                 $product->save();
-    
+
                 if($old_download_file){
                     if(File::exists(public_path().'/uploads/custom-images/'.$old_download_file))unlink(public_path().'/uploads/custom-images/'.$old_download_file);
                 }
             }
-    
+
             $product->product_type = $request->product_type;
             $product->author_id = $request->author;
             $product->category_id = $request->category;
@@ -515,7 +503,7 @@ class ProductController extends Controller
         $product_language->seo_title = $request->seo_title ? $request->seo_title : $request->name;
         $product_language->seo_description = $request->seo_description ? $request->seo_description : $request->name;
         $product_language->save();
-        
+
         $notification = trans('admin_validation.Updated successfully');
         $notification = array('messege'=>$notification,'alert-type'=>'success');
         return redirect()->back()->with($notification);
@@ -527,7 +515,7 @@ class ProductController extends Controller
             'author'=> session()->get('admin_lang') == $request->lang_code ? 'required':'',
             'category'=> session()->get('admin_lang') == $request->lang_code ? 'required':'',
             'name'=>'required',
-            'preview_link'=> session()->get('admin_lang') == $request->lang_code ? 'required':'',
+            'preview_link'=> session()->get('admin_lang') == $request->lang_code ? '':'',
             'regular_price'=> session()->get('admin_lang') == $request->lang_code ? 'required':'',
             'description'=>'required',
             'tags'=>'required',
@@ -541,7 +529,6 @@ class ProductController extends Controller
             'name.required' => trans('admin_validation.Name is required'),
             'slug.required' => trans('admin_validation.Slug is required'),
             'slug.unique' => trans('admin_validation.Slug already exist'),
-            'preview_link.required' => trans('admin_validation.Preview link is required'),
             'regular_price.required' => trans('admin_validation.Regular price is required'),
             'description.required' => trans('admin_validation.Description is required'),
             'tags.required' => trans('admin_validation.Tag is required'),
@@ -551,7 +538,7 @@ class ProductController extends Controller
 
         $product = Product::find($id);
         $product_language = ProductLanguage::where(['product_id' => $id, 'lang_code' => $request->lang_code])->first();
-        
+
         if(session()->get('admin_lang') == $request->lang_code){
             if($request->thumb_image){
                 $old_image = $product->thumbnail_image;
@@ -561,12 +548,12 @@ class ProductController extends Controller
                 Image::make($request->thumb_image)
                     ->save(public_path().'/'.$image_name);
                 $product->thumbnail_image = $image_name;
-    
+
                 if($old_image){
                     if(File::exists(public_path().'/'.$old_image))unlink(public_path().'/'.$old_image);
                 }
             }
-    
+
             if($request->product_icon){
                 $old_icon = $product->product_icon;
                 $extention = $request->product_icon->getClientOriginalExtension();
@@ -575,7 +562,7 @@ class ProductController extends Controller
                 Image::make($request->product_icon)
                     ->save(public_path().'/'.$image_name);
                 $product->product_icon = $image_name;
-    
+
                 if($old_icon){
                     if(File::exists(public_path().'/'.$old_icon))unlink(public_path().'/'.$old_icon);
                 }

@@ -21,8 +21,8 @@ class SubscriberController extends Controller
     }
 
     public function index(){
-        $subscribers = Subscriber::where('is_verified',1)->get();
-        return view('admin.subscriber',compact('subscribers'));
+        $subscribers = Subscriber::all();
+        return view('admin.subscriber',compact('subscribers' ));
     }
 
     public function destroy($id){

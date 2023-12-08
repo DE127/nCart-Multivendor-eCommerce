@@ -1,4 +1,4 @@
-@extends($active_theme)
+@extends('layouts.layout')
 @section('title')
     <title>{{ $blog->bloglanguagefrontend->title }}</title>
     <meta name="title" content="{{ $blog->bloglanguagefrontend->seo_title }}">
@@ -14,329 +14,149 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="index.html">Home</a>
-                                <svg class="breadcrumb-arrow" width="6px" height="9px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                </svg>
+                                <a href="{{ route('home') }}">{{__('user.home')}}</a>
                             </li>
-                            <li class="breadcrumb-item">
-                                <a href="">Breadcrumb</a>
-                                <svg class="breadcrumb-arrow" width="6px" height="9px">
-                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                </svg>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">Latest News</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="javascript:;">{{__('user.blog details')}}</a></li>
                         </ol>
                     </nav>
-                </div>
-                <div class="page-header__title">
-                    <h1>Latest News</h1>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <div class="block">
-                        <div class="posts-view">
-                            <div class="posts-view__list posts-list posts-list--layout--grid2">
-                                <div class="posts-list__body">
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-1.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">Special Offers</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">Philosophy That Addresses Topics Such As Goodness</a>
-                                                </div>
-                                                <div class="post-card__date">October 19, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div class="block post post--layout--classic">
+                        <div class="post__header post-header post-header--layout--classic">
+
+                            <h1 class="post-header__title">{{ $blog->bloglanguagefrontend->title }}</h1>
+                            <div class="post-header__meta">
+                                <div class="post-header__meta-item"><i class="far fa-user"></i> {{__('user.By')}} {{ $blog->admin->name }}</div>
+                                <div class="post-header__meta-item"><i class="far fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($blog->created_at)->format('d M Y') }}</div>
+                                <div class="post-header__meta-item"><i class="far fa-comment-lines"></i> {{ $blog_comments->count() }} {{__('user.Comments')}}</div>
+                            </div>
+                        </div>
+                        <div class="post__featured">
+                            <a href="">
+                                <img src="{{ asset($blog->image) }}" alt="">
+                            </a>
+                        </div>
+                        <div class="post__content typography ">
+                            {!! clean($blog->bloglanguagefrontend->description) !!}
+                        </div>
+                        <div class="post__footer">
+                            <div class="post__tags-share-links">
+                                @php
+                                    $tag_arr=[];
+                                    $tags=explode(', ', $blog->bloglanguagefrontend->tag);
+                                    foreach($tags as $tag){
+                                        $tag_arr[]=$tag;
+                                    }
+                                    array_pop($tag_arr);
+                                @endphp
+                                <div class="post__tags tags">
+                                    <div class="tags__list">
+                                        @foreach ($tag_arr as $tag)
+                                           <a href="{{ route('blogs', ['keyword' => strtolower($tag)]) }}">#{{ $tag }}</a>
+                                        @endforeach
                                     </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-2.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">Latest News</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">Logic Is The Study Of Reasoning And Argument Part 2</a>
-                                                </div>
-                                                <div class="post-card__date">September 5, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="post__share-links share-links">
+                                    <ul class="share-links__list">
+                                        <li><span>{{__('user.share')}}:</span></li>
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('blog', $blog->slug) }}&t={{ $blog->title }}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('blog', $blog->slug) }}&title={{ $blog->title }}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="https://twitter.com/share?text={{ $blog->title }}&url={{ route('blog', $blog->slug) }}"><i class="fab fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="post-author">
+                                <div class="post-author__avatar">
+                                    <img src="{{ asset($blog->admin->image) }}" alt="">
+                                </div>
+                                <div class="post-author__info">
+                                    <div class="post-author__name">
+                                        <a href="">{{ $blog->admin->name }}</a>
                                     </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-3.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">New Arrivals</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">Some Philosophers Specialize In One Or More Historical Periods</a>
-                                                </div>
-                                                <div class="post-card__date">August 12, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-4.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">Special Offers</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">A Variety Of Other Academic And Non-Academic Approaches Have Been Explored</a>
-                                                </div>
-                                                <div class="post-card__date">Jule 30, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-5.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">New Arrivals</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">Germany Was The First Country To Professionalize Philosophy</a>
-                                                </div>
-                                                <div class="post-card__date">June 12, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-6.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">Special Offers</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">Logic Is The Study Of Reasoning And Argument Part 1</a>
-                                                </div>
-                                                <div class="post-card__date">May 21, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-7.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">Special Offers</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">Many Inquiries Outside Of Academia Are Philosophical In The Broad Sense</a>
-                                                </div>
-                                                <div class="post-card__date">April 3, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-8.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">Latest News</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">An Advantage Of Digital Circuits When Compared To Analog Circuits</a>
-                                                </div>
-                                                <div class="post-card__date">Mart 29, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-9.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">New Arrivals</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">A Digital Circuit Is Typically Constructed From Small Electronic Circuits</a>
-                                                </div>
-                                                <div class="post-card__date">February 10, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="posts-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl">
-                                            <div class="post-card__image">
-                                                <a href="">
-                                                    <img src="images/posts/post-10.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="post-card__info">
-                                                <div class="post-card__category">
-                                                    <a href="">Special Offers</a>
-                                                </div>
-                                                <div class="post-card__name">
-                                                    <a href="">Engineers Use Many Methods To Minimize Logic Functions</a>
-                                                </div>
-                                                <div class="post-card__date">January 1, 2019</div>
-                                                <div class="post-card__content">
-                                                    In one general sense, philosophy is associated with wisdom,
-                                                    intellectual culture and a search for knowledge.
-                                                    In that sense, all cultures...
-                                                </div>
-                                                <div class="post-card__read-more">
-                                                    <a href="" class="btn btn-secondary btn-sm">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="post-author__about">
+                                        {{ $blog->admin->description }}
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit suscipit mi, non
+                                        tempor nulla finibus eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     </div>
                                 </div>
                             </div>
-                            <div class="posts-view__pagination">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link page-link--with-arrow" href="" aria-label="Previous">
-                                            <svg class="page-link__arrow page-link__arrow--left" aria-hidden="true" width="8px" height="13px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-left-8x13"></use>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="">1</a></li>
-                                    <li class="page-item active"><a class="page-link" href="">2 <span class="sr-only">(current)</span></a></li>
-                                    <li class="page-item"><a class="page-link" href="">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link page-link--with-arrow" href="" aria-label="Next">
-                                            <svg class="page-link__arrow page-link__arrow--right" aria-hidden="true" width="8px" height="13px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-right-8x13"></use>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
+                        <section class="post__section">
+                            <h4 class="post__section-title">Comments ({{ $blog_comments->count() }} {{__('user.Comments')}})</h4>
+                            <ol class="comments-list comments-list--level--0">
+                                @if ($blog_comments->count()>0)
+                                    @foreach ($blog_comments as $comment)
+                                        <li class="comments-list__item">
+                                    <div class="comment">
+                                        <div class="comment__avatar">
+                                            <a href=""><img src="{{ asset($setting->default_avatar) }}" alt="useer" class="img-fluid w-50"></a>
+                                        </div>
+                                        <div class="comment__content">
+                                            <div class="comment__header">
+                                                <div class="comment__author">
+                                                    <a href="">{{ html_decode($comment->name) }}</a>
+                                                    <p>{{ '@'.html_decode(strtolower(str_replace(' ', '_', $comment->name))) }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="comment__text">{{ html_decode($comment->comment) }}</div>
+                                            <div class="comment__date"><i class="far fa-calendar-alt"></i> {{ Carbon\Carbon::parse($comment->created_at)->format('F d,Y') }} {{__('user.At')}} {{ Carbon\Carbon::parse($comment->created_at)->format('h:i A') }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                    @endforeach
+                                        @if ($blog_comments->hasPages())
+                                            <div class="row">
+                                                {{ $blog_comments->links('custom_pagination') }}
+                                            </div>
+                                        @endif
+                                @endif
+                            </ol>
+                        </section>
+                        <section class="post__section">
+                            <h4 class="post__section-title">{{__('user.Leave a Comment')}}</h4>
+                            <form id="blogCommentForm">
+                                @csrf
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="comment-last-name">{{__('user.name')}}*</label>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="{{__('user.Name')}}">
+                                        <input type="hidden" name="blog_id" id="blog_id" value="{{ $blog->id }}">
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <label for="comment-email">{{__('user.email')}}*</label>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="{{__('user.Email')}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-content">{{__('user.message')}}*</label>
+                                    <textarea class="form-control" name="comment" id="comment" rows="6" placeholder="{{__('user.Type your comment here')}}"></textarea>
+                                </div>
+                                @if($recaptchaSetting->status==1)
+                                    <div class="form-group">
+                                        <div class="g-recaptcha" data-sitekey="{{ $recaptchaSetting->site_key }}"></div>
+                                    </div>
+                                @endif
+                                <div class="form-group mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">{{__('user.Submit Comment')}}</button>
+                                    <button type="submit" class="btn btn-primary btn-lg d-none" id="showspin"><i class="fas fa-spinner fa-spin"></i></button>
+                                </div>
+                            </form>
+                        </section>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="block block-sidebar block-sidebar--position--end">
                         <div class="block-sidebar__item">
                             <div class="widget-search">
-                                <form class="widget-search__body">
-                                    <input class="widget-search__input" placeholder="Blog search..." type="text" autocomplete="off" spellcheck="false">
+                                <form class="widget-search__body" id="search_form">
+                                    <input class="widget-search__input" name="keyword" id="keyword" value="{{ request()->get('keyword') }}" placeholder="{{__('user.Search')}}" type="text"
+                                           autocomplete="off" spellcheck="false">
                                     <button class="widget-search__button" type="submit">
-                                        <svg width="20px" height="20px">
-                                            <use xlink:href="images/sprite.svg#search-20"></use>
-                                        </svg>
+                                        <i class="fas fa-search"></i>
                                     </button>
                                 </form>
                             </div>
@@ -344,38 +164,20 @@
                         <div class="block-sidebar__item">
                             <div class="widget-aboutus widget">
                                 <h4 class="widget__title">About Blog</h4>
-                                <div class="widget-aboutus__text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus,
-                                    eget viverra nulla sem vitae neque. Quisque id sodales libero.
-                                </div>
                                 <!-- social-links -->
                                 <div class="social-links widget-aboutus__socials social-links--shape--rounded">
                                     <ul class="social-links__list">
-                                        <li class="social-links__item">
-                                            <a class="social-links__link social-links__link--type--rss" href="" target="_blank">
-                                                <i class="fas fa-rss"></i>
-                                            </a>
-                                        </li>
-                                        <li class="social-links__item">
-                                            <a class="social-links__link social-links__link--type--youtube" href="" target="_blank">
-                                                <i class="fab fa-youtube"></i>
-                                            </a>
-                                        </li>
-                                        <li class="social-links__item">
-                                            <a class="social-links__link social-links__link--type--facebook" href="" target="_blank">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li class="social-links__item">
-                                            <a class="social-links__link social-links__link--type--twitter" href="" target="_blank">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="social-links__item">
-                                            <a class="social-links__link social-links__link--type--instagram" href="" target="_blank">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                        </li>
+                                        @php
+                                            $social_links=App\Models\FooterSocialLink::get()
+                                        @endphp
+                                        @foreach ($social_links as $link)
+                                            <li class="social-links__item">
+                                                <a class="social-links__link social-links__link--type--rss" href="{{ $link->link }}"
+                                                   target="_blank">
+                                                    <i class="{{ $link->icon }}"></i>
+                                                </a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <!-- social-links / end -->
@@ -383,208 +185,74 @@
                         </div>
                         <div class="block-sidebar__item">
                             <div class="widget-categories widget-categories--location--blog widget">
-                                <h4 class="widget__title">Categories</h4>
-                                <ul class="widget-categories__list" data-collapse data-collapse-opened-class="widget-categories__item--open">
-                                    <li class="widget-categories__item" data-collapse-item>
-                                        <div class="widget-categories__row">
-                                            <a href="">
-                                                <svg class="widget-categories__arrow" width="6px" height="9px">
-                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                </svg>
-                                                Latest News
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="widget-categories__item" data-collapse-item>
-                                        <div class="widget-categories__row">
-                                            <a href="">
-                                                <svg class="widget-categories__arrow" width="6px" height="9px">
-                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                </svg>
-                                                Special Offers
-                                            </a>
-                                            <button class="widget-categories__expander" type="button" data-collapse-trigger></button>
-                                        </div>
-                                        <div class="widget-categories__subs" data-collapse-content>
-                                            <ul>
-                                                <li><a href="">Spring Sales</a></li>
-                                                <li><a href="">Summer Sales</a></li>
-                                                <li><a href="">Autumn Sales</a></li>
-                                                <li><a href="">Christmas Sales</a></li>
-                                                <li><a href="">Other Sales</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="widget-categories__item" data-collapse-item>
-                                        <div class="widget-categories__row">
-                                            <a href="">
-                                                <svg class="widget-categories__arrow" width="6px" height="9px">
-                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                </svg>
-                                                New Arrivals
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="widget-categories__item" data-collapse-item>
-                                        <div class="widget-categories__row">
-                                            <a href="">
-                                                <svg class="widget-categories__arrow" width="6px" height="9px">
-                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                </svg>
-                                                Reviews
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="widget-categories__item" data-collapse-item>
-                                        <div class="widget-categories__row">
-                                            <a href="">
-                                                <svg class="widget-categories__arrow" width="6px" height="9px">
-                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                </svg>
-                                                Drills and Mixers
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="widget-categories__item" data-collapse-item>
-                                        <div class="widget-categories__row">
-                                            <a href="">
-                                                <svg class="widget-categories__arrow" width="6px" height="9px">
-                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                </svg>
-                                                Cordless Screwdrivers
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="widget-categories__item" data-collapse-item>
-                                        <div class="widget-categories__row">
-                                            <a href="">
-                                                <svg class="widget-categories__arrow" width="6px" height="9px">
-                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                </svg>
-                                                Screwdrivers
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="widget-categories__item" data-collapse-item>
-                                        <div class="widget-categories__row">
-                                            <a href="">
-                                                <svg class="widget-categories__arrow" width="6px" height="9px">
-                                                    <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                </svg>
-                                                Wrenches
-                                            </a>
-                                        </div>
-                                    </li>
+                                <h4 class="widget__title">{{__('user.Categories')}}</h4>
+                                <ul class="widget-categories__list" data-collapse
+                                    data-collapse-opened-class="widget-categories__item--open">
+                                    @foreach ($categories as $category)
+                                        @php
+                                            $total_blog = App\Models\Blog::where(['blog_category_id' => $category->id, 'status' => 1])->count();
+                                        @endphp
+                                        <li class="widget-categories__item" data-collapse-item>
+                                            <div class="widget-categories__row">
+                                                <a href="{{ $category->slug }}">
+                                                    {{ $category->blogcategorylanguagefrontend->category_name }}
+                                                </a>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                         <div class="block-sidebar__item">
                             <div class="widget-posts widget">
-                                <h4 class="widget__title">Latest Posts</h4>
+                                <h4 class="widget__title">{{__('user.Popular Post')}}</h4>
                                 <div class="widget-posts__list">
-                                    <div class="widget-posts__item">
-                                        <div class="widget-posts__image">
-                                            <a href="">
-                                                <img src="images/posts/post-1-thumbnail.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="widget-posts__info">
-                                            <div class="widget-posts__name">
-                                                <a href="">Philosophy That Addresses Topics Such As Goodness</a>
+                                    @foreach ($popular_blogs as $blog)
+                                        <div class="widget-posts__item">
+                                            <div class="widget-posts__image">
+                                                <a href="{{ route('blog', $blog->slug) }}">
+                                                    <img src="{{ asset($blog->image) }}" alt="blog">
+                                                </a>
                                             </div>
-                                            <div class="widget-posts__date">October 19, 2019</div>
-                                        </div>
-                                    </div>
-                                    <div class="widget-posts__item">
-                                        <div class="widget-posts__image">
-                                            <a href="">
-                                                <img src="images/posts/post-2-thumbnail.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="widget-posts__info">
-                                            <div class="widget-posts__name">
-                                                <a href="">Logic Is The Study Of Reasoning And Argument Part 2</a>
+                                            <div class="widget-posts__info" style="margin: 10px">
+                                                <div class="widget-posts__name">
+                                                    <a href="{{ route('blog', $blog->slug) }}">{{ $blog->bloglanguagefrontend->title }}</a>
+                                                </div>
+                                                <div class="widget-posts__date"><i class="fas fa-calendar-alt"></i> {{ Carbon\Carbon::parse($blog->created_at)->format('d-m-Y') }}</div>
                                             </div>
-                                            <div class="widget-posts__date">September 5, 2019</div>
                                         </div>
-                                    </div>
-                                    <div class="widget-posts__item">
-                                        <div class="widget-posts__image">
-                                            <a href="">
-                                                <img src="images/posts/post-3-thumbnail.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="widget-posts__info">
-                                            <div class="widget-posts__name">
-                                                <a href="">Some Philosophers Specialize In One Or More Historical Periods</a>
-                                            </div>
-                                            <div class="widget-posts__date">August 12, 2019</div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="block-sidebar__item">
                             <div class="widget-newsletter widget">
-                                <h4 class="widget-newsletter__title">Our Newsletter</h4>
+                                <h4 class="widget-newsletter__title">{{ $subscriber->title }}</h4>
                                 <div class="widget-newsletter__text">
-                                    Phasellus eleifend sapien felis, at sollicitudin arcu semper mattis. Mauris quis mi quis ipsum tristique lobortis. Nulla vitae est blandit rutrum.
+                                    {!! clean($subscriber->description) !!}
                                 </div>
-                                <form class="widget-newsletter__form" action="">
+                                <form id="subscriberForm" class="widget-newsletter__form">
+                                    @csrf
                                     <label for="widget-newsletter-email" class="sr-only">Email Address</label>
-                                    <input id="widget-newsletter-email" type="text" class="form-control" placeholder="Email Address">
-                                    <button type="submit" class="btn btn-primary mt-3">Subscribe</button>
+                                    <input id="widget-newsletter-email" type="text" name="email" class="form-control"
+                                           placeholder="{{__('user.Enter Your Email Address')}}">
+                                    <button type="submit" class="btn btn-primary mt-3" id="subSubmitBtn">{{__('user.Subscribe')}}</button>
+                                    <button type="submit" class="btn btn-primary mt-3 d-none" id="subShowSpain"><i class="fas fa-spinner fa-spin"></i></button>
                                 </form>
                             </div>
                         </div>
                         <div class="block-sidebar__item">
-                            <div class="widget-comments widget">
-                                <h4 class="widget__title">Latest Comments</h4>
-                                <ul class="widget-comments__list">
-                                    <li class="widget-comments__item">
-                                        <div class="widget-comments__author"><a href="">Emma Williams</a></div>
-                                        <div class="widget-comments__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge...</div>
-                                        <div class="widget-comments__meta">
-                                            <div class="widget-comments__date">3 minutes ago</div>
-                                            <div class="widget-comments__name">On <a href="" title="Nullam at varius sapien sed sit amet condimentum elit">Nullam at varius sapien sed sit amet condimentum elit</a></div>
-                                        </div>
-                                    </li>
-                                    <li class="widget-comments__item">
-                                        <div class="widget-comments__author"><a href="">Airic Ford</a></div>
-                                        <div class="widget-comments__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge...</div>
-                                        <div class="widget-comments__meta">
-                                            <div class="widget-comments__date">25 minutes ago</div>
-                                            <div class="widget-comments__name">On <a href="" title="Integer efficitur efficitur velit non pulvinar pellentesque dictum viverra">Integer efficitur efficitur velit non pulvinar pellentesque dictum viverra</a></div>
-                                        </div>
-                                    </li>
-                                    <li class="widget-comments__item">
-                                        <div class="widget-comments__author"><a href="">Loyd Walker</a></div>
-                                        <div class="widget-comments__content">In one general sense, philosophy is associated with wisdom, intellectual culture and a search for knowledge...</div>
-                                        <div class="widget-comments__meta">
-                                            <div class="widget-comments__date">2 hours ago</div>
-                                            <div class="widget-comments__name">On <a href="" title="Curabitur quam augue vestibulum in mauris fermentum pellentesque libero">Curabitur quam augue vestibulum in mauris fermentum pellentesque libero</a></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="block-sidebar__item">
                             <div class="widget-tags widget">
-                                <h4 class="widget__title">Tags Cloud</h4>
+                                <h4 class="widget__title">{{__('user.Popular Tags')}}</h4>
                                 <div class="tags tags--lg">
                                     <div class="tags__list">
-                                        <a href="">Promotion</a>
-                                        <a href="">Power Tool</a>
-                                        <a href="">New Arrivals</a>
-                                        <a href="">Screwdriver</a>
-                                        <a href="">Wrench</a>
-                                        <a href="">Mounts</a>
-                                        <a href="">Electrodes</a>
-                                        <a href="">Chainsaws</a>
-                                        <a href="">Manometers</a>
-                                        <a href="">Nails</a>
-                                        <a href="">Air Guns</a>
-                                        <a href="">Cutting Discs</a>
+                                        @php
+                                            $popular_tags=explode(', ', $blog->bloglanguagefrontend->tag);
+                                            array_pop($popular_tags);
+                                        @endphp
+                                        @foreach ($popular_tags as $popular_tag)
+                                            <a href="{{ $popular_tag }}">{{ $popular_tag }}</a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -594,6 +262,22 @@
             </div>
         </div>
     </div>
+
+    <form action="{{ route('blogs') }}" id="blogSearchForm">
+
+        @if (request()->has('keyword'))
+            <input type="hidden" name="keyword" value="{{ request()->get('keyword') }}" id="keyword_form">
+        @else
+            <input type="hidden" name="keyword" value="" id="keyword_form">
+        @endif
+
+        @if (request()->has('category'))
+            <input type="hidden" name="category" value="{{ request()->get('category') }}" id="category_form">
+        @else
+            <input type="hidden" name="category" value="" id="category_form">
+        @endif
+
+    </form>
     <!-- site__body / end -->
 @endsection
 @push('frontend_js')

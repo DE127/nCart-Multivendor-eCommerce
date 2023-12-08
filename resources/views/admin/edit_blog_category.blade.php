@@ -18,28 +18,28 @@
           <div class="section-body">
             <a href="{{ route('admin.blog-category.index') }}" class="btn btn-primary"><i class="fa-duotone fa-lg fa-list"></i> {{__('admin.Blog Category')}}</a>
             <div class="row mt-4">
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <h3 class="h3 mb-3 text-gray-800">{{__('admin.Language')}}</h3>
-                      <hr>
-                      <div class="lang_list_top">
-                        <ul class="lang_list">
-                            @foreach ($languages as $language)
-                            <li><a href="{{ route('admin.edit.blog.category', ['edit_id' => $blog_category->id, 'lang_code' => $language->lang_code]) }}"><i class="fa-duotone fa-lg fa-edit"></i> {{ $language->lang_name }}</a></li>
-                            @endforeach
-                        </ul>
-                      </div>
+{{--                <div class="col-12">--}}
+{{--                  <div class="card">--}}
+{{--                    <div class="card-body">--}}
+{{--                      <h3 class="h3 mb-3 text-gray-800">{{__('admin.Language')}}</h3>--}}
+{{--                      <hr>--}}
+{{--                      <div class="lang_list_top">--}}
+{{--                        <ul class="lang_list">--}}
+{{--                            @foreach ($languages as $language)--}}
+{{--                            <li><a href="{{ route('admin.edit.blog.category', ['edit_id' => $blog_category->id, 'lang_code' => $language->lang_code]) }}"><i class="fa-duotone fa-lg fa-edit"></i> {{ $language->lang_name }}</a></li>--}}
+{{--                            @endforeach--}}
+{{--                        </ul>--}}
+{{--                      </div>--}}
 
-                      <div class="alert alert-danger" role="alert">
-                          @php
-                              $current_language = App\Models\Language::where('lang_code', request()->get('lang_code'))->first();
-                          @endphp
-                          <p>{{__('admin.Your editing mode')}} : <b>{{ request()->get('lang_code') ? $current_language->lang_name:'English' }}</b></p> 
-                      </div> 
-                    </div>
-                  </div>
-              </div>
+{{--                      <div class="alert alert-danger" role="alert">--}}
+{{--                          @php--}}
+{{--                              $current_language = App\Models\Language::where('lang_code', request()->get('lang_code'))->first();--}}
+{{--                          @endphp--}}
+{{--                          <p>{{__('admin.Your editing mode')}} : <b>{{ request()->get('lang_code') ? $current_language->lang_name:'English' }}</b></p> --}}
+{{--                      </div> --}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--              </div>--}}
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">

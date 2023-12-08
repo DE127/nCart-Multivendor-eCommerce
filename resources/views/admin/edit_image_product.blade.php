@@ -24,24 +24,24 @@
                   </div>
                 </div>
 
-                <div class="card mt-3">
-                    <div class="card-body">
-                      <h3 class="h3 mb-3 text-gray-800">{{__('admin.Language')}}</h3>
-                      <hr>
-                      <ul class="lang_list">
-                          @foreach ($languages as $language)
-                          <li><a href="{{ route('admin.product.edit',['product' => $product->id, 'lang_code' => $language->lang_code]) }}"><i class="fa-duotone fa-lg fa-edit"></i> {{ $language->lang_name }}</a></li>
-                          @endforeach
-                      </ul>
+{{--                <div class="card mt-3">--}}
+{{--                    <div class="card-body">--}}
+{{--                      <h3 class="h3 mb-3 text-gray-800">{{__('admin.Language')}}</h3>--}}
+{{--                      <hr>--}}
+{{--                      <ul class="lang_list">--}}
+{{--                          @foreach ($languages as $language)--}}
+{{--                          <li><a href="{{ route('admin.product.edit',['product' => $product->id, 'lang_code' => $language->lang_code]) }}"><i class="fa-duotone fa-lg fa-edit"></i> {{ $language->lang_name }}</a></li>--}}
+{{--                          @endforeach--}}
+{{--                      </ul>--}}
 
-                      <div class="alert alert-danger" role="alert">
-                          @php
-                              $current_language = App\Models\Language::where('lang_code', request()->get('lang_code'))->first();
-                          @endphp
-                          <p>{{__('admin.Your editing mode')}} : <b>{{ $current_language->lang_name }}</b></p> 
-                      </div> 
-                    </div>
-                  </div>
+{{--                      <div class="alert alert-danger" role="alert">--}}
+{{--                          @php--}}
+{{--                              $current_language = App\Models\Language::where('lang_code', request()->get('lang_code'))->first();--}}
+{{--                          @endphp--}}
+{{--                          <p>{{__('admin.Your editing mode')}} : <b>{{ $current_language->lang_name }}</b></p> --}}
+{{--                      </div> --}}
+{{--                    </div>--}}
+{{--                  </div>--}}
               </div>
               <div class="col-md-8">
                   <div class="card" id="settings-card">
@@ -110,12 +110,12 @@
 
                                 @if (session()->get('admin_lang') == request()->get('lang_code'))
                                 <div class="form-group col-12">
-                                    <label>{{__('admin.Preview link')}} <span class="text-danger">*</span></label>
+                                    <label>{{__('admin.Preview link')}}</label>
                                    <input type="text" class="form-control" name="preview_link" value="{{ html_decode($product->preview_link) }}">
                                 </div>
 
                                 <div class="form-group col-12">
-                                    <label>{{__('admin.Regular price')}} <span class="text-danger">* ({{__('USD Price')}})</span></label>
+                                    <label>{{__('admin.Regular price')}} <span class="text-danger">* (VNĐ)</span></label>
                                    <input type="text" class="form-control" name="regular_price" value="{{ html_decode($product->regular_price) }}">
                                 </div>
                                 @endif
@@ -159,7 +159,7 @@
                                         <input {{ $product->trending_item == 1 ? 'checked' : '' }}  type="checkbox" name="trending_item" id="trending_item"> <label for="trending_item" class="mr-3" >{{__('admin.Trending')}}</label>
 
                                         <input {{ $product->featured_item == 1 ? 'checked' : '' }} type="checkbox" name="featured_item" id="featured_item"> <label for="featured_item" class="mr-3" >{{__('admin.Featured')}}</label>
-                                        
+
                                         <input {{ $product->high_resolution == 1 ? 'checked' : '' }} type="checkbox" name="high_resolution" id="high_resolution"> <label for="high_resolution" class="mr-3" >{{__('admin.High Resolution')}}</label>
 
                                         <input {{ $product->cross_browser == 1 ? 'checked' : '' }} type="checkbox" name="cross_browser" id="cross_browser"> <label for="cross_browser" class="mr-3" >{{__('admin.Cross Browser')}}</label>

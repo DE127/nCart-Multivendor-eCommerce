@@ -60,11 +60,11 @@
                                     <input type="text" id="slug" class="form-control"  name="slug" value="{{ old('slug') }}">
                                 </div>
                                 <div class="form-group col-12">
-                                   <label>{{__('admin.Preview link')}} <span class="text-danger">*</span></label>
+                                   <label>{{__('admin.Preview link')}}</label>
                                    <input type="text" class="form-control" name="preview_link" value="{{ old('preview_link') }}">
                                 </div>
                                 <div class="form-group col-12">
-                                    <label>{{__('admin.Regular price')}} <span class="text-danger">* ({{__('USD Price')}})</span></label>
+                                    <label>{{__('admin.Regular price')}} <span class="text-danger">* (VNĐ)</span></label>
                                    <input type="text" class="form-control" name="regular_price" value="{{ old('regular_price') }}">
                                 </div>
 
@@ -103,7 +103,7 @@
                                         <input type="checkbox" name="trending_item" id="trending_item"> <label for="trending_item" class="mr-3" >{{__('admin.Trending')}}</label>
 
                                         <input type="checkbox" name="featured_item" id="featured_item"> <label for="featured_item" class="mr-3" >{{__('admin.Featured')}}</label>
-                                        
+
                                         <input type="checkbox" name="high_resolution" id="high_resolution"> <label for="high_resolution" class="mr-3" >{{__('admin.High Resolution')}}</label>
 
                                         <input type="checkbox" name="cross_browser" id="cross_browser"> <label for="cross_browser" class="mr-3" >{{__('admin.Cross Browser')}}</label>

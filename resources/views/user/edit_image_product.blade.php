@@ -29,8 +29,8 @@
                             @php
                                 $current_language = App\Models\Language::where('lang_code', request()->get('lang_code'))->first();
                             @endphp
-                            <p>{{__('user.Your editing mode')}} : <b>{{ $current_language->lang_name }}</b></p> 
-                        </div> 
+                            <p>{{__('user.Your editing mode')}} : <b>{{ $current_language->lang_name }}</b></p>
+                        </div>
                       </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                     <div class="col-xl-12">
                         <div class="wsus__comment_single_input">
                             <fieldset>
-                                <legend>{{__('user.Regular price')}}* ({{__('USD Price')}})</legend>
+                                <legend>{{__('user.Regular price')}}* (VNĐ)</legend>
                                 <input type="text" name="regular_price" value="{{ html_decode($product->regular_price) }}">
                             </fieldset>
                         </div>
@@ -150,15 +150,15 @@
                                     <h4>{{__('user.Others feature')}}</h4>
                                 </div>
                                 <div class="col-12">
-                                    <input type="checkbox" name="high_resolution" id="high_resolution" {{ $product->high_resolution == 1 ? 'checked' : '' }}> 
+                                    <input type="checkbox" name="high_resolution" id="high_resolution" {{ $product->high_resolution == 1 ? 'checked' : '' }}>
                                     <label for="high_resolution" class="mr-3" >{{__('user.High Resolution')}}</label>
                                 </div>
                                 <div class="col-12">
-                                    <input type="checkbox" name="cross_browser" id="cross_browser" {{ $product->cross_browser == 1 ? 'checked' : '' }}> 
+                                    <input type="checkbox" name="cross_browser" id="cross_browser" {{ $product->cross_browser == 1 ? 'checked' : '' }}>
                                     <label for="cross_browser" class="mr-3" >{{__('user.Cross Browser')}}</label>
                                 </div>
                                 <div class="col-12">
-                                    <input type="checkbox" name="documentation" id="documentation" {{ $product->documentation == 1 ? 'checked' : '' }}> 
+                                    <input type="checkbox" name="documentation" id="documentation" {{ $product->documentation == 1 ? 'checked' : '' }}>
                                     <label for="documentation" class="mr-3">{{__('user.Documentation')}}</label>
                                 </div>
                                 <div class="col-12">
