@@ -18,7 +18,7 @@
                             <div class="card-body">
                               <h5 class="card-title">{{ $productItem->productitemlangadmin->script_title }}</h5>
                               <p class="card-text">{{ $productItem->productitemlangadmin->script_description }}</p>
-                              <a href="{{ route('admin.product.create',['product_type' => 'script']) }}" class="btn btn-primary">{{__('admin.Go to create page')}}</a>
+                              <a href="{{ route('admin.product.create',['product_type' => 'withfile']) }}" class="btn btn-primary">{{__('admin.Go to create page')}}</a>
                             </div>
                           </div>
                     </div>
@@ -29,7 +29,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $productItem->productitemlangadmin->image_title }}</h5>
                                 <p class="card-text">{{ $productItem->productitemlangadmin->image_description }}</p>
-                                <a href="{{ route('admin.product.create',['product_type' => 'image']) }}" class="btn btn-primary">{{__('admin.Go to create page')}}</a>
+                                <a href="{{ route('admin.product.create',['product_type' => 'basic']) }}" class="btn btn-primary">{{__('admin.Go to create page')}}</a>
                               </div>
                           </div>
                     </div>
@@ -40,7 +40,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $productItem->productitemlangadmin->video_title }}</h5>
                                 <p class="card-text">{{ $productItem->productitemlangadmin->video_description }}</p>
-                                <a href="{{ route('admin.product.create',['product_type' => 'video']) }}" class="btn btn-primary">{{__('admin.Go to create page')}}</a>
+                                <a href="{{ route('admin.product.create',['product_type' => 'group']) }}" class="btn btn-primary">{{__('admin.Go to create page')}}</a>
                               </div>
                           </div>
                     </div>
@@ -51,7 +51,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $productItem->productitemlangadmin->audio_title }}</h5>
                                 <p class="card-text">{{ $productItem->productitemlangadmin->audio_description }}</p>
-                                <a href="{{ route('admin.product.create',['product_type' => 'audio']) }}" class="btn btn-primary">{{__('admin.Go to create page')}}</a>
+                                <a href="{{ route('admin.product.create',['product_type' => 'link']) }}" class="btn btn-primary">{{__('admin.Go to create page')}}</a>
                               </div>
                           </div>
                     </div>

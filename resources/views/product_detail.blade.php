@@ -316,7 +316,7 @@
                             <div class="product-tabs__list-container container">
                                 <a href="#tab-description" class="product-tabs__item product-tabs__item--active">Description</a>
                                 <a href="#tab-reviews" class="product-tabs__item">Reviews</a>
-                                <a href="#tab-comments" class="product-tabs__item">Specification</a>
+                                <a href="#tab-comments" class="product-tabs__item">Comments</a>
                             </div>
                         </div>
                     </div>
@@ -371,22 +371,11 @@
                                         </ol>
                                         <div class="reviews-list__pagination">
                                             <ul class="pagination justify-content-center">
-                                                <li class="page-item disabled">
-                                                    <a class="page-link page-link--with-arrow" href=""
-                                                       aria-label="Previous">
-                                                        <i class="fas fa-angle-left"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="">1</a></li>
-                                                <li class="page-item active"><a class="page-link" href="">2 <span
-                                                            class="sr-only">(current)</span></a></li>
-                                                <li class="page-item"><a class="page-link" href="">3</a></li>
-                                                <li class="page-item">
-                                                    <a class="page-link page-link--with-arrow" href=""
-                                                       aria-label="Next">
-                                                        <i class="fas fa-angle-right"></i>
-                                                    </a>
-                                                </li>
+                                                @if ($productReviews->hasPages())
+                                                    <div class="row">
+                                                        {{ $productReviews->links('custom_pagination') }}
+                                                    </div>
+                                                @endif
                                             </ul>
                                         </div>
                                     </div>
@@ -428,11 +417,6 @@
                                         </div>
                                     </div>
                                 </form>
-                                @if ($productReviews->hasPages())
-                                    <div class="row">
-                                        {{ $productReviews->links('custom_pagination') }}
-                                    </div>
-                                @endif
                             </div>
                         </div>
                         <div class="product-tabs__pane" id="tab-comments">
@@ -469,30 +453,11 @@
                                         </ol>
                                         <div class="reviews-list__pagination">
                                             <ul class="pagination justify-content-center">
-                                                <li class="page-item disabled">
-                                                    <a class="page-link page-link--with-arrow" href=""
-                                                       aria-label="Previous">
-                                                        <svg class="page-link__arrow page-link__arrow--left"
-                                                             aria-hidden="true" width="8px" height="13px">
-                                                            <use
-                                                                xlink:href="images/sprite.svg#arrow-rounded-left-8x13"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="">1</a></li>
-                                                <li class="page-item active"><a class="page-link" href="">2 <span
-                                                            class="sr-only">(current)</span></a></li>
-                                                <li class="page-item"><a class="page-link" href="">3</a></li>
-                                                <li class="page-item">
-                                                    <a class="page-link page-link--with-arrow" href=""
-                                                       aria-label="Next">
-                                                        <svg class="page-link__arrow page-link__arrow--right"
-                                                             aria-hidden="true" width="8px" height="13px">
-                                                            <use
-                                                                xlink:href="images/sprite.svg#arrow-rounded-right-8x13"></use>
-                                                        </svg>
-                                                    </a>
-                                                </li>
+                                                @if ($productReviews->hasPages())
+                                                    <div class="row">
+                                                        {{ $productReviews->links('custom_pagination') }}
+                                                    </div>
+                                                @endif
                                             </ul>
                                         </div>
                                     </div>

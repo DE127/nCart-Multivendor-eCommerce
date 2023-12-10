@@ -60,7 +60,7 @@
                                     <input type="text" id="slug" class="form-control"  name="slug" value="{{ old('slug') }}">
                                 </div>
                                 <div class="form-group col-12">
-                                   <label>{{__('admin.Preview link')}}</label>
+                                   <label>{{__('admin.Link')}} </label>
                                    <input type="text" class="form-control" name="preview_link" value="{{ old('preview_link') }}">
                                 </div>
                                 <div class="form-group col-12">

@@ -148,28 +148,28 @@ class ProductController extends Controller
             return redirect()->route('admin.select-product-type')->with($notification);
         }
 
-        if($request->product_type == 'script'){
+        if($request->product_type == 'withfile'){
             $categories = Category::with('catlangadmin')->where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
             $product_type = $request->product_type;
 
             return view('admin.create_product', compact('categories', 'authors','product_type'));
 
-        }elseif($request->product_type == 'image'){
+        }elseif($request->product_type == 'basic'){
 
             $categories = Category::with('catlangadmin')->where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
             $product_type = $request->product_type;
 
             return view('admin.create_image_product', compact('categories', 'authors','product_type'));
-        }elseif($request->product_type == 'video'){
+        }elseif($request->product_type == 'group'){
 
             $categories = Category::with('catlangadmin')->where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
             $product_type = $request->product_type;
 
             return view('admin.create_image_product', compact('categories', 'authors','product_type'));
-        }elseif($request->product_type == 'audio'){
+        }elseif($request->product_type == 'link'){
 
             $categories = Category::with('catlangadmin')->where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
@@ -374,28 +374,28 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product_language = ProductLanguage::where(['product_id' => $id, 'lang_code' => $request->lang_code])->first();
         $languages = Language::get();
-        if($product->product_type == 'script'){
+        if($product->product_type == 'withfile'){
             $categories = Category::with('catlangadmin')->where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
             $product_type = $product->product_type;
 
             return view('admin.edit_product', compact('categories', 'authors','product_type','product','languages','product_language'));
 
-        }elseif($product->product_type == 'image'){
+        }elseif($product->product_type == 'basic'){
             $categories = Category::with('catlangadmin')->where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
             $product_type = $product->product_type;
 
             return view('admin.edit_image_product', compact('categories', 'authors','product_type','product','languages','product_language'));
 
-        }elseif($product->product_type == 'video'){
+        }elseif($product->product_type == 'group'){
             $categories = Category::with('catlangadmin')->where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
             $product_type = $product->product_type;
 
             return view('admin.edit_image_product', compact('categories', 'authors','product_type','product','languages','product_language'));
 
-        }elseif($product->product_type == 'audio'){
+        }elseif($product->product_type == 'link'){
             $categories = Category::with('catlangadmin')->where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
             $product_type = $product->product_type;
@@ -597,7 +597,7 @@ class ProductController extends Controller
     public function product_variant($id){
         $product = Product::find($id);
 
-        if($product->product_type == 'image'){
+        if($product->product_type == 'basic'){
             $categories = Category::where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
             $product_type = $product->product_type;
@@ -605,7 +605,7 @@ class ProductController extends Controller
             $setting = Setting::first();
 
             return view('admin.product_variant', compact('categories', 'authors','product_type','product','product_variants','setting'));
-        }elseif($product->product_type == 'video'){
+        }elseif($product->product_type == 'group'){
 
             $categories = Category::where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
@@ -615,7 +615,7 @@ class ProductController extends Controller
 
             return view('admin.product_variant', compact('categories', 'authors','product_type','product','product_variants','setting'));
 
-        }elseif($product->product_type == 'audio'){
+        }elseif($product->product_type == 'link'){
 
             $categories = Category::where('status', 1)->get();
             $authors = User::where('status', 1)->orderBy('name', 'asc')->get();
@@ -759,7 +759,7 @@ class ProductController extends Controller
             }
         }
 
-        if($product->product_type!='script'){
+        if($product->product_type!='withfile'){
             $variants = ProductVariant::where('product_id', $id)->get();
             foreach($variants as $variant){
                 $old_download_file = $variant->file_name;

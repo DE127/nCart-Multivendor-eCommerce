@@ -50,7 +50,7 @@
                                     <div class="row">
                                         @if (session()->get('admin_lang') == request()->get('lang_code'))
                                         <div class="form-group col-12">
-                                            <label for="">{{__('Product Image')}}</label>
+                                            <label for="">{{__('Product With File')}}</label>
                                             <div>
                                                 <img class="error_404"  src="{{ asset($productItem->script_image) }}" alt="">
                                             </div>
@@ -78,7 +78,7 @@
 
                                         @if (session()->get('admin_lang') == request()->get('lang_code'))
                                         <div class="form-group col-12">
-                                            <label for="">{{__('Product Image')}}</label>
+                                            <label for="">{{__('Basic Product')}}</label>
                                             <div>
                                                 <img class="error_404"  src="{{ asset($productItem->image_image) }}" alt="">
                                             </div>
@@ -106,7 +106,7 @@
 
                                         @if (session()->get('admin_lang') == request()->get('lang_code'))
                                         <div class="form-group col-12">
-                                            <label for="">{{__('Product Image')}}</label>
+                                            <label for="">{{__('Group Product')}}</label>
                                             <div>
                                                 <img class="error_404"  src="{{ asset($productItem->video_image) }}" alt="">
                                             </div>
@@ -134,7 +134,7 @@
 
                                         @if (session()->get('admin_lang') == request()->get('lang_code'))
                                         <div class="form-group col-12">
-                                            <label for="">{{__('Product Image')}}</label>
+                                            <label for="">{{__('Link Product')}}</label>
                                             <div>
                                                 <img class="error_404"  src="{{ asset($productItem->audio_image) }}" alt="">
                                             </div>
