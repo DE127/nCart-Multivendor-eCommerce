@@ -15,7 +15,8 @@
                     <div class="search search--location--mobile-header mobile-header__search">
                         <div class="search__body">
                             <form class="search__form" action="{{ route('products') }}" method="GET">
-                                <input class="search__input" name="keyword" placeholder="{{__('user.Search your products')}}..."
+                                <input class="search__input" name="keyword"
+                                       placeholder="{{__('user.Search your products')}}..."
                                        aria-label="Site search" type="text" autocomplete="off">
                                 <button class="search__button search__button--type--submit"
                                         type="submit">
@@ -37,16 +38,16 @@
                                         </span>
                             </button>
                         </div>
-{{--                        <div class="indicator indicator--mobile d-sm-flex d-none">--}}
-{{--                            <a href="wishlist" class="indicator__button">--}}
-{{--                                        <span class="indicator__area">--}}
-{{--                                            <svg width="20px" height="20px">--}}
-{{--                                                <use xlink:href="images/sprite.svg#heart-20"></use>--}}
-{{--                                            </svg>--}}
-{{--                                            <span class="indicator__value">0</span>--}}
-{{--                                        </span>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="indicator indicator--mobile d-sm-flex d-none">--}}
+                        {{--                            <a href="wishlist" class="indicator__button">--}}
+                        {{--                                        <span class="indicator__area">--}}
+                        {{--                                            <svg width="20px" height="20px">--}}
+                        {{--                                                <use xlink:href="images/sprite.svg#heart-20"></use>--}}
+                        {{--                                            </svg>--}}
+                        {{--                                            <span class="indicator__value">0</span>--}}
+                        {{--                                        </span>--}}
+                        {{--                            </a>--}}
+                        {{--                        </div>--}}
                         <div class="indicator indicator--mobile">
                             <a href="{{ route('cart-view') }}" class="indicator__button">
                                         <span class="indicator__area">
@@ -399,7 +400,8 @@
                                 <div class="search search--location--indicator ">
                                     <div class="search__body">
                                         <form class="search__form" action="{{ route('products') }}" method="GET">
-                                            <input class="search__input" name="keyword" placeholder="{{__('user.Search your products')}}..."
+                                            <input class="search__input" name="keyword"
+                                                   placeholder="{{__('user.Search your products')}}..."
                                                    aria-label="Site search" type="text" autocomplete="off">
                                             <button class="search__button search__button--type--submit"
                                                     type="submit">
@@ -413,16 +415,16 @@
                                 </div>
                             </div>
                         </div>
-{{--                        <div class="indicator">--}}
-{{--                            <a href="wishlist" class="indicator__button">--}}
-{{--                                            <span class="indicator__area">--}}
-{{--                                                <svg width="20px" height="20px">--}}
-{{--                                                    <use xlink:href="images/sprite.svg#heart-20"></use>--}}
-{{--                                                </svg>--}}
-{{--                                                <span class="indicator__value">0</span>--}}
-{{--                                            </span>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="indicator">--}}
+                        {{--                            <a href="wishlist" class="indicator__button">--}}
+                        {{--                                            <span class="indicator__area">--}}
+                        {{--                                                <svg width="20px" height="20px">--}}
+                        {{--                                                    <use xlink:href="images/sprite.svg#heart-20"></use>--}}
+                        {{--                                                </svg>--}}
+                        {{--                                                <span class="indicator__value">0</span>--}}
+                        {{--                                            </span>--}}
+                        {{--                            </a>--}}
+                        {{--                        </div>--}}
                         <div class="indicator indicator--trigger--click">
                             <a href="{{ route('cart-view') }}" class="indicator__button">
                                             <span class="indicator__area">
@@ -530,7 +532,7 @@
                                             </table>
                                         </div>
                                         <div class="dropcart__buttons">
-                                            <a class="btn btn-secondary" href="cart.html">View Cart</a>
+                                            <a class="btn btn-secondary" href="{{ route('cart-view') }}">View Cart</a>
                                             <a class="btn btn-primary" href="checkout.html">Checkout</a>
                                         </div>
                                     </div>
@@ -540,48 +542,21 @@
                         </div>
                         <div class="indicator indicator--trigger--click">
                             @if (Auth::guard('web')->check())
-                            <a href="{{ route('dashboard') }}" class="indicator__button">
+                                <a href="{{ route('dashboard') }}" class="indicator__button">
                                             <span class="indicator__area">
                                                 <i class="fas fa-user"></i>
                                             </span>
-                            </a>
-                            @else
-                            <a href="{{ route('login') }}" class="indicator__button">
-                                            <span class="indicator__area">
-                                                <i class="fas fa-user"></i>
-                                            </span>
-                            </a>
+                                </a>
                                 <div class="indicator__dropdown">
                                     <div class="account-menu">
-                                        <form class="account-menu__form">
-                                            <div class="account-menu__form-title">Log In to Your Account</div>
-                                            <div class="form-group">
-                                                <label for="header-signin-email" class="sr-only">Email address</label>
-                                                <input id="header-signin-email" type="email"
-                                                       class="form-control form-control-sm" placeholder="Email address">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="header-signin-password" class="sr-only">Password</label>
-                                                <div class="account-menu__form-forgot">
-                                                    <input id="header-signin-password" type="password"
-                                                           class="form-control form-control-sm" placeholder="Password">
-                                                    <a href="" class="account-menu__form-forgot-link">Forgot?</a>
-                                                </div>
-                                            </div>
-                                            <div class="form-group account-menu__form-button">
-                                                <button type="submit" class="btn btn-primary btn-sm">Login</button>
-                                            </div>
-                                            <div class="account-menu__form-link"><a href="account-login.html">Create An
-                                                    Account</a></div>
-                                        </form>
                                         <div class="account-menu__divider"></div>
                                         <a href="account-dashboard.html" class="account-menu__user">
                                             <div class="account-menu__user-avatar">
                                                 <img src="images/avatars/avatar-3.jpg" alt="">
                                             </div>
                                             <div class="account-menu__user-info">
-                                                <div class="account-menu__user-name">Helena Garcia</div>
-                                                <div class="account-menu__user-email">stroyka@example.com</div>
+                                                <div class="account-menu__user-name">User</div>
+                                                <div class="account-menu__user-email">User@email.com</div>
                                             </div>
                                         </a>
                                         <div class="account-menu__divider"></div>
@@ -597,6 +572,30 @@
                                         </ul>
                                     </div>
                                 </div>
+                            @else
+                                <div class="indicator indicator--trigger--click">
+                                    <a class="indicator__button">
+                                            <span class="indicator__area">
+                                                <i class="fas fa-user"></i>
+                                            </span>
+                                    </a>
+                                    <div class="indicator__dropdown">
+                                        <div class="account-menu">
+                                            <a href="{{ route('login') }}" class="indicator__button">
+
+                                                <div class="account-menu__form-title">Log In to Your Account</div>
+                                                <div class="form-group account-menu__form-button">
+                                                    <button type="submit" class="btn btn-primary btn-sm"><a
+                                                            href="{{ route('login') }}">Login </a></button>
+                                                </div>
+                                                <div class="account-menu__form-link"><a href="{{ route('register') }}">Create
+                                                        An
+                                                        Account</a></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
                             @endif
                         </div>
                     </div>

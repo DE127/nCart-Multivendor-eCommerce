@@ -267,7 +267,7 @@
                                             </div>
                                         </div>
                                         <div class="product__actions-item product__actions-item--addtocart">
-                                            <button class="btn btn-primary btn-lg">Add to cart</button>
+                                            <button class="btn btn-primary btn-lg" onclick="addToCard({{ $product->id }})">Add to cart</button>
                                         </div>
                                         <div class="product__actions-item product__actions-item--wishlist">
                                             <button type="button" onclick="addWishlist({{ $product->id }})" class="btn btn-secondary btn-svg-icon btn-lg"

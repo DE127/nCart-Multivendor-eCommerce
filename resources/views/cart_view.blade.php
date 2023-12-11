@@ -1,4 +1,4 @@
-@extends($active_theme)
+@extends('layouts.layout')
 
 @section('title')
     <title>{{__('user.Cart view')}}</title>
@@ -50,7 +50,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="cartItem">
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -119,7 +119,7 @@
 
                             <p class="category">{{__('user.By')}} <span>{{ html_decode($product->author->name) }}</span> {{__('user.In')}} <a class="category"
                                     href="{{ route('products', ['category' => $product->category->slug]) }}">{{ $product->category->catlangfrontend->name }}</a></p>
-                            
+
                             <p class="rating">
                                 @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $review)
@@ -137,11 +137,11 @@
                                     {{ session()->get('currency_icon') }}{{ html_decode($product->regular_price * session()->get('currency_rate')) }}
                                 @endif
                             </p>
-                            
+
                             <div class="like_and_sell">
                                 <span class="download"><i class="fas fa-arrow-to-bottom"></i>{{ $sale }} {{__('user.Sale')}}</span>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
